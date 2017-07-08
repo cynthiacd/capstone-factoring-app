@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTrinomial } from '../actions';
+import { Link } from 'react-router-dom';
 
 class TrinomialShow extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class TrinomialShow extends Component {
 
     return (
       <div>
+        <Link to="/"> Back </Link>
         <h3>Problem goes here: </h3>
         <p> Here is all the info the API request provides</p>
         <p>Pattern: { trinomial.pattern }</p>
@@ -29,6 +31,7 @@ class TrinomialShow extends Component {
         <p>a: { trinomial.a }</p>
         <p>b: { trinomial.b }</p>
         <p>c: { trinomial.c }</p>
+
       </div>
     );
   }

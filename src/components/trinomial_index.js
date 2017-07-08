@@ -25,7 +25,8 @@ class TrinomialIndex extends Component {
         <div className="progress-chart">
           <h4>Progress Chart Goes Here</h4>
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 

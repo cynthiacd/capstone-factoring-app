@@ -10,6 +10,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
 import TrinomialShow from './components/trinomial_show';
+import UserNew from './components/user_new';
 
 // you forgot to put in the first argumnet of promise to the applyMiddleware function
 // and that caused your API bug
@@ -20,7 +21,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-
+          <Route path="/user/new" component={UserNew} />
           <Route path="/practice" component={TrinomialShow} />
           <Route path="/" component={TrinomialIndex} />
         </Switch>
