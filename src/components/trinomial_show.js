@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import { fetchTrinomial } from '../actions';
 
 class TrinomialShow extends Component {
+  componentDidMount() {
+    this.props.fetchTrinomial();
+  }
+
   render() {
+    console.log(this.props.trinomial);
     const { trinomial } = this.props;
 
     return (
@@ -14,8 +19,8 @@ class TrinomialShow extends Component {
   }
 }
 
-function mapStatetoProps( state ) {
+function mapStateToProps( state ) {
   return { trinomial: state.trinomial };
 }
 
-export default connect(mapStatetoProps, { fetchTrinomial })(TrinomialShow);
+export default connect(mapStateToProps, { fetchTrinomial })(TrinomialShow);

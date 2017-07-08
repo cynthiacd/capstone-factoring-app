@@ -9,6 +9,7 @@ import promise from 'redux-promise';
 
 import App from './components/app';
 import reducers from './reducers';
+import TrinomialShow from './components/trinomial_show';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
