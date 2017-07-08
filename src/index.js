@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
 import reducers from './reducers';
+import TrinomialIndex from './components/trinomial_index';
 import TrinomialShow from './components/trinomial_show';
 
 // you forgot to put in the first argumnet of promise to the applyMiddleware function
@@ -19,7 +20,9 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/trinomial" component={TrinomialShow} />
+
+          <Route path="/practice" component={TrinomialShow} />
+          <Route path="/" component={TrinomialIndex} />
         </Switch>
       </div>
     </BrowserRouter>
