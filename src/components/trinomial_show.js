@@ -11,7 +11,7 @@ class TrinomialShow extends Component {
     // console.log(this.props.data);
     const trinomial = this.props.data.trinomial;
 
-    // just like the course said - this conditional is important ...
+    // just like you were taught - this conditional is important cause of async issues
     if (!trinomial) {
       return (
         <div>
@@ -22,9 +22,8 @@ class TrinomialShow extends Component {
 
     return (
       <div>
-        <h3>problem goes here</h3>
-        <p>You need to know what pattern you want to render the correct problem</p>
-        <p> Now getting pattern and string with api call</p>
+        <h3>Problem goes here: </h3>
+        <p> Here is all the info the API request provides</p>
         <p>Pattern: { trinomial.pattern }</p>
         <p>{ trinomial.general_form }</p>
         <p>a: { trinomial.a }</p>
