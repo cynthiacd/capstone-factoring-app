@@ -10,6 +10,8 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import TrinomialShow from './components/trinomial_show';
 
+// you forgot to put in the first argumnet of promise to the applyMiddleware function
+// and that caused your API bug
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
