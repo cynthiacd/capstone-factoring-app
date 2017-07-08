@@ -8,12 +8,13 @@ class TrinomialShow extends Component {
   }
 
   render() {
-    console.log(this.props.trinomial);
-    const { trinomial } = this.props;
+    console.log(this.props);
+    console.log(this.state);
+    // const { trinomial } = this.props;
 
     return (
       <div>
-        <h3>{ trinomial }</h3>
+        <h3>problem goes here</h3>
       </div>
     );
   }
