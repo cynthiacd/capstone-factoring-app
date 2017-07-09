@@ -14,7 +14,7 @@ export function fetchTrinomial() {
   };
 }
 
-export function checkTrinomial(values) {
+export function checkTrinomial(values, callback) {
   const request = axios.post(`${ROOT_URL}/trinomials/check`, values)
     .then( () => callback() );
 

@@ -28,6 +28,10 @@ class TrinomialShow extends Component {
     );
   }
 
+  renderResponse() {
+    console.log("the problem posted to the API and results were saved");
+  }
+
   onSubmit(values) {
     // const trinomial = this.props.data.trinomial;
     // I can check the answer if I want or I can send the answer back with the post API ...
@@ -43,7 +47,12 @@ class TrinomialShow extends Component {
     values["pattern"] = this.props.data.trinomial.pattern;
     // console.log("Values to be posted:");
     // console.log(values);
-    this.props.checkTrinomial(values);
+    // window.location.reload();
+    this.props.checkTrinomial(values, () => {
+      // console.log("your problem was graded");
+      window.alert("Your problem was graded");
+      window.location.reload();
+    });
   }
 
   render() {
