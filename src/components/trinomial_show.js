@@ -31,7 +31,6 @@ class TrinomialShow extends Component {
         <p>a: { trinomial.a }</p>
         <p>b: { trinomial.b }</p>
         <p>c: { trinomial.c }</p>
-
       </div>
     );
   }
