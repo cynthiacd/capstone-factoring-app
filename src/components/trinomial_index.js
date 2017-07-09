@@ -10,7 +10,7 @@ class TrinomialIndex extends Component {
         <div className="header">
           <h1>Quadratic/Trinomial Factoring Practice</h1>
             <div className="navigation-bar">
-                <Link to="/practice">
+                <Link className="btn btn-primary" to="/practice">
                   Practice
                 </Link>
               <Link className="btn btn-primary" to="/user/new">

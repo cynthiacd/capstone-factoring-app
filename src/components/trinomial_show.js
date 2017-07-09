@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTrinomial } from '../actions';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import { fetchTrinomial } from '../actions';
+import { checkTrinomial } from '../actions';
 
 class TrinomialShow extends Component {
+  // const trinomial = this.props.data.trinomial;
+
   componentDidMount() {
     this.props.fetchTrinomial();
   }
@@ -26,7 +29,21 @@ class TrinomialShow extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
+    // const trinomial = this.props.data.trinomial;
+    // I can check the answer if I want or I can send the answer back with the post API ...
+    // I can generate problems in API and save in db pattern, solution, user_id?
+    // values["solution"] = this.props.data.trinomial.solution
+    // values["pattern1"] = this.props.data.trinomial.solution1
+    // values["pattern2"] = this.props.data.trinomial.solution2
+    delete values.step1
+    delete values.step2
+    const grade = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? true : false );
+    values["grade"] = grade
+    values["username"] = "user1"
+    values["pattern"] = this.props.data.trinomial.pattern;
+    // console.log("Values to be posted:");
+    // console.log(values);
+    this.props.checkTrinomial(values);
   }
 
   render() {
@@ -51,8 +68,7 @@ class TrinomialShow extends Component {
           <h3>Problem goes here: </h3>
           <p> Here is all the info the API request provides</p>
           <p>Pattern: { trinomial.pattern }</p>
-          <p>{ trinomial.general_form }</p>
-          <p>x<sup>2</sup> + { trinomial.b }x + { trinomial.c }</p>
+          <p>x<sup>2</sup> { trinomial.general_form }</p>
           <p>a: { trinomial.a }</p>
           <p>b: { trinomial.b }</p>
           <p>c: { trinomial.c }</p>
@@ -89,4 +105,4 @@ function mapStateToProps(state) {
 
 export default reduxForm({
   form: 'TrinomialInputForm'
-})(connect(mapStateToProps, { fetchTrinomial })(TrinomialShow));
+})(connect(mapStateToProps, { fetchTrinomial, checkTrinomial })(TrinomialShow));
