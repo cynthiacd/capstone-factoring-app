@@ -33,12 +33,12 @@ class TrinomialShow extends Component {
     // I can check the answer if I want or I can send the answer back with the post API ...
     // I can generate problems in API and save in db pattern, solution, user_id?
     // values["solution"] = this.props.data.trinomial.solution
-    // values["pattern1"] = this.props.data.trinomial.solution1
-    // values["pattern2"] = this.props.data.trinomial.solution2
+    values["solution1"] = this.props.data.trinomial.solution1
+    values["solution2"] = this.props.data.trinomial.solution2
     delete values.step1
     delete values.step2
-    const grade = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? true : false );
-    values["grade"] = grade
+    const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
+    values["score"] = score
     values["username"] = "user1"
     values["pattern"] = this.props.data.trinomial.pattern;
     // console.log("Values to be posted:");
