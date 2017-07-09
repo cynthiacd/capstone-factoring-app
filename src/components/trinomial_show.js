@@ -11,6 +11,7 @@ class TrinomialShow extends Component {
   render() {
     // console.log(this.props.data);
     const trinomial = this.props.data.trinomial;
+    const superScript2 = "2".sup();
 
     // just like you were taught - this conditional is important cause of async issues
     if (!trinomial) {
@@ -21,6 +22,7 @@ class TrinomialShow extends Component {
       );
     }
 
+
     return (
       <div>
         <Link to="/"> Back </Link>
@@ -28,6 +30,7 @@ class TrinomialShow extends Component {
         <p> Here is all the info the API request provides</p>
         <p>Pattern: { trinomial.pattern }</p>
         <p>{ trinomial.general_form }</p>
+        <p>"x" + { superScript2 } + { trinomial.b } + "x" + { trinomial.c }</p>
         <p>a: { trinomial.a }</p>
         <p>b: { trinomial.b }</p>
         <p>c: { trinomial.c }</p>
