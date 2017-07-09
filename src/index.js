@@ -22,9 +22,9 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/user/new" component={UserNew} />
-          <Route path="/practice" component={ ()=> (<div><TrinomialShow/><TrinomialInputForm/></div>) } />
-          <Route path="/" component={TrinomialIndex} />
+          <Route path="/user/new" component={ UserNew } />
+          <Route path="/practice" component={ TrinomialShow } />
+          <Route path="/" component={ TrinomialIndex } />
         </Switch>
       </div>
     </BrowserRouter>
