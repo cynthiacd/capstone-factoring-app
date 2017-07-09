@@ -10,6 +10,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
 import TrinomialShow from './components/trinomial_show';
+import TrinomialInputForm from './components/trinomial_input_form';
 import UserNew from './components/user_new';
 
 // you forgot to put in the first argumnet of promise to the applyMiddleware function
@@ -22,7 +23,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/user/new" component={UserNew} />
-          <Route path="/practice" component={TrinomialShow} />
+          <Route path="/practice" component={ ()=> (<div><TrinomialShow/><TrinomialInputForm/></div>) } />
           <Route path="/" component={TrinomialIndex} />
         </Switch>
       </div>

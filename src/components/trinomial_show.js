@@ -22,7 +22,6 @@ class TrinomialShow extends Component {
       );
     }
 
-
     return (
       <div>
         <Link to="/"> Back </Link>

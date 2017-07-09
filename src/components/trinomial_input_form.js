@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 
-class TrinomilaInputForm extends Component {
+class TrinomialInputForm extends Component {
   renderField(field) {
     const { meta: { touched, error } } = field;
-    const className = `form-group ${ touched && error ? 'has-danger' : ''}`
+    const className = `form-group ${ touched && error ? 'has-danger' : ''}`;
 
     return (
       <div className={ className }>
@@ -16,14 +16,11 @@ class TrinomilaInputForm extends Component {
           type="text"
           { ...field.input }
         />
-        <div className="text-help">
-          { touched ? error : "" }
-        </div>
       </div>
     );
   }
 
-  onSumbmit(values) {
+  onSubmit(values) {
     console.log(values);
   }
 
@@ -31,7 +28,7 @@ class TrinomilaInputForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
         <Field
           label="Step 1"
           name="step1"
@@ -48,9 +45,6 @@ class TrinomilaInputForm extends Component {
           component={ this.renderField }
         />
         <button type="submit" className="btn btn-primary">Submit</button>
-        <Link className="btn btn-danger" to="/">
-          Cancel
-        </Link>
       </form>
     );
   }
