@@ -6,7 +6,12 @@ import { fetchTrinomial } from '../actions';
 import { checkTrinomial } from '../actions';
 
 class TrinomialShow extends Component {
+  // this didn't work!!
   // const trinomial = this.props.data.trinomial;
+  // maybe this would work?
+  // trinomial() {
+  //   this.props.data.trinomial;
+  // }
 
   componentDidMount() {
     this.props.fetchTrinomial();
@@ -44,12 +49,12 @@ class TrinomialShow extends Component {
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score
     values["username"] = "user1"
-    values["pattern"] = this.props.data.trinomial.pattern;
+    values["pattern"] = "mastery_" + this.props.data.trinomial.pattern;
     // console.log("Values to be posted:");
     // console.log(values);
     // window.location.reload();
     this.props.checkTrinomial(values, () => {
-      // console.log("your problem was graded");
+      // this is a callback function that should be called after the API post
       window.alert("Your problem was graded");
       window.location.reload();
     });
@@ -74,13 +79,8 @@ class TrinomialShow extends Component {
       <div>
         <div className="problem">
           <Link to="/"> Back </Link>
-          <h3>Problem goes here: </h3>
-          <p> Here is all the info the API request provides</p>
           <p>Pattern: { trinomial.pattern }</p>
-          <p>x<sup>2</sup> { trinomial.general_form }</p>
-          <p>a: { trinomial.a }</p>
-          <p>b: { trinomial.b }</p>
-          <p>c: { trinomial.c }</p>
+          <h2 className="trinomial-general-form">x<sup>2</sup> { trinomial.general_form }</h2>
         </div>
 
         <div className="ans-input-form">
@@ -107,6 +107,10 @@ class TrinomialShow extends Component {
     );
   }
 }
+
+// const mapStateToProps = function(state) {
+  // return { data: state.trinomial };
+// }
 
 function mapStateToProps(state) {
   return { data: state.trinomial };
