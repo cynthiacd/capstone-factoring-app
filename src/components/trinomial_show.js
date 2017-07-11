@@ -74,13 +74,12 @@ class TrinomialShow extends Component {
         </div>
       );
     }
-
     return (
       <div>
         <div className="problem">
           <Link to="/"> Back </Link>
           <p>Pattern: { trinomial.pattern }</p>
-          <h2 className="trinomial-general-form">x<sup>2</sup> { trinomial.general_form }</h2>
+          <h2 className="trinomial-general-form">{ trinomial.a }x<sup>2</sup> { trinomial.general_form }</h2>
         </div>
 
         <div className="ans-input-form">
