@@ -50,12 +50,12 @@ class TrinomialShow extends Component {
     values["score"] = score
     values["username"] = "user1"
     values["pattern"] = "mastery_" + this.props.data.trinomial.pattern;
-    // console.log("Values to be posted:");
-    // console.log(values);
-    // window.location.reload();
+
+    // this.props.checkTrinomial(values);
     this.props.checkTrinomial(values, () => {
       // this is a callback function that should be called after the API post
       window.alert("Your problem was graded");
+      // this is not best practice
       window.location.reload();
     });
   }
