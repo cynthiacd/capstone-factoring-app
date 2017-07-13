@@ -41,7 +41,8 @@ class TrinomialShow extends Component {
   //     { this.props.fetchTrinomial(); }
   // }
 
-  // this works - my own custom method that will run if !trinomial in render
+  // this works - my own custom method that will run if trinomial dne in render
+  // can't get the lifecycle methods to work ...
   getTrinomial() {
     this.props.fetchTrinomial();
   }
