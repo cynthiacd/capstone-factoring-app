@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import { fetchTrinomial } from '../actions';
 import { checkTrinomial } from '../actions';
 
@@ -84,7 +84,8 @@ class TrinomialShow extends Component {
     // this.props.checkTrinomial(values);
     this.props.checkTrinomial(values, () => {
       // this is a callback function that should be called after the API post
-      window.alert("Your problem was graded");
+      // window.alert("Your problem was graded");
+      console.log("your problem was graded");
       // call fetchTrinomial or componentDidMount to get a new problem without reloading the page
       // this.props.fetchTrinomial();
       // but you should be able to use another react built in method to do this - your app should react to the change in state
@@ -149,6 +150,11 @@ function mapStateToProps(state) {
   return { data: state.trinomial };
 }
 
+const afterSubmit = function (result, dispatch) {
+  dispatch(reset('TrinomialInputForm'));
+}
+
 export default reduxForm({
-  form: 'TrinomialInputForm'
+  form: 'TrinomialInputForm',
+  onSubmitSuccess: afterSubmit
 })(connect(mapStateToProps, { fetchTrinomial, checkTrinomial })(TrinomialShow));
