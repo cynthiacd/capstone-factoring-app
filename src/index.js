@@ -18,7 +18,7 @@ import UserNew from './components/user_new';
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={ createStoreWithMiddleware(reducers) }>
     <BrowserRouter>
       <div>
         <Switch>
