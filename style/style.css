@@ -10,3 +10,13 @@
 .trinomial-general-form {
   text-align: center;
 }
+
+div.form-group {
+  margin: 1%;
+  display: inline-block;
+  width: auto;
+}
+
+input {
+  display: inline-block;
+}

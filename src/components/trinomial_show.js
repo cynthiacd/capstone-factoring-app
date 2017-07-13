@@ -56,7 +56,7 @@ class TrinomialShow extends Component {
         <label>{ field.label }</label>
         <input
           className="form-control"
-          type="text"
+          type={ field.type }
           { ...field.input }
         />
       </div>
@@ -68,7 +68,7 @@ class TrinomialShow extends Component {
   }
 
   onSubmit(values) {
-
+    console.log(values);
     // I can check the answer if I want or I can send the answer back with the post API ...
     // I can generate problems in API and save in db pattern, solution, user_id?
     // values["solution"] = this.props.data.trinomial.solution
@@ -119,11 +119,35 @@ class TrinomialShow extends Component {
 
         <div className="ans-input-form">
           <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
-            <Field
-              label="Step 1"
-              name="step1"
-              component={ this.renderField }
-            />
+          <div>
+            <label>Pattern</label>
+            <div>
+              <Field
+                label="Plus Plus"
+                name="pattern"
+                component = { this.renderField }
+                type="radio"
+                value="plus_plus"/>
+              <Field
+                label="Plus Minus"
+                name="pattern"
+                component = { this.renderField }
+                type="radio"
+                value="minus_plus"/>
+              <Field
+                label="Minus Minus"
+                name="pattern"
+                component = { this.renderField }
+                type="radio"
+                value="minus_minus"/>
+              <Field
+                label="Plus Minus"
+                name="pattern"
+                component = { this.renderField }
+                type="radio"
+                value="plus_minus"/>
+            </div>
+          </div>
             <Field
               label="Step 2"
               name="step2"
@@ -142,13 +166,19 @@ class TrinomialShow extends Component {
   }
 }
 
-// const mapStateToProps = function(state) {
-  // return { data: state.trinomial };
-// }
+// functional expressions or declarations best practice with React?
+// There are several different ways that function expressions become more useful than function declarations.
 
-function mapStateToProps(state) {
+// As closures
+// As arguments to other functions
+// As Immediately Invoked Function Expressions (IIFE)
+const mapStateToProps = function(state) {
   return { data: state.trinomial };
 }
+
+// function mapStateToProps(state) {
+  // return { data: state.trinomial };
+// }
 
 const afterSubmit = function (result, dispatch) {
   dispatch(reset('TrinomialInputForm'));
