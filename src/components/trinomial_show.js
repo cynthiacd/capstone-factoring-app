@@ -16,9 +16,8 @@ class TrinomialShow extends Component {
   // this is a react Component life cycle method that auto calls when the page is first loaded or refreshed
   // but not if the state changes and the component is re-rendered
   // componentDidMount() {
-    // this.props.fetchTrinomial();
+  //   this.props.fetchTrinomial();
   // }
-
   // componentWillReceiveProps() {
   //   this.props.fetchTrinomial();
   // }
@@ -30,10 +29,14 @@ class TrinomialShow extends Component {
   //     return false;
   //   }
   // }
-
-  // componentWillReceiveProps() {
-  //
+  // componentWillReceiveProps(nextProps) {
+  //   console.log( "in componentWillReceiveProps function");
+  //   console.log(this.props.data);
+  //   console.log(nextProps);
+  //   if (this.props.data !== nextProps.data )
+  //     { this.props.fetchTrinomial(); }
   // }
+
 
   // this causes an infinite loop - good way to test api calls :P
   // componentDidUpdate(prevProps, prevState) {
@@ -79,7 +82,8 @@ class TrinomialShow extends Component {
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score
     values["username"] = "user1"
-    values["pattern"] = "mastery_" + this.props.data.trinomial.pattern;
+    values["pattern"] = this.props.data.trinomial.pattern;
+    values["id"] = this.props.data.trinomial.id
 
     // this.props.checkTrinomial(values);
     this.props.checkTrinomial(values, () => {
@@ -119,46 +123,27 @@ class TrinomialShow extends Component {
 
         <div className="ans-input-form">
           <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
-          <div>
-            <label>Pattern</label>
             <div>
+              <label>Pattern</label>
+              <div>
+                <Field label="Plus Plus" name="pattern" component = { this.renderField } type="radio" value="plus_plus"/>
+                <Field label="Plus Minus" name="pattern" component = { this.renderField } type="radio" value="minus_plus"/>
+                <Field label="Minus Minus" name="pattern" component = { this.renderField } type="radio" value="minus_minus"/>
+                <Field label="Plus Minus" name="pattern" component = { this.renderField } type="radio" value="plus_minus"/>
+              </div>
+
               <Field
-                label="Plus Plus"
-                name="pattern"
-                component = { this.renderField }
-                type="radio"
-                value="plus_plus"/>
+                label="Step 2"
+                name="step2"
+                component={ this.renderField }
+              />
               <Field
-                label="Plus Minus"
-                name="pattern"
-                component = { this.renderField }
-                type="radio"
-                value="minus_plus"/>
-              <Field
-                label="Minus Minus"
-                name="pattern"
-                component = { this.renderField }
-                type="radio"
-                value="minus_minus"/>
-              <Field
-                label="Plus Minus"
-                name="pattern"
-                component = { this.renderField }
-                type="radio"
-                value="plus_minus"/>
+                label="Final Answer"
+                name="final"
+                component={ this.renderField }
+              />
+              <button type="submit" className="btn btn-primary">Submit</button>
             </div>
-          </div>
-            <Field
-              label="Step 2"
-              name="step2"
-              component={ this.renderField }
-            />
-            <Field
-              label="Final Answer"
-              name="final"
-              component={ this.renderField }
-            />
-            <button type="submit" className="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
@@ -166,13 +151,14 @@ class TrinomialShow extends Component {
   }
 }
 
-// functional expressions or declarations best practice with React?
+// functional expressions or declarations best practice with React? from the intenet...
 // There are several different ways that function expressions become more useful than function declarations.
-
 // As closures
 // As arguments to other functions
 // As Immediately Invoked Function Expressions (IIFE)
 const mapStateToProps = function(state) {
+  // console.log("in mapStateToProps");
+  // console.log(state.trinomial);
   return { data: state.trinomial };
 }
 
