@@ -19,8 +19,18 @@ div.form-group {
 
 input {
   display: inline-block;
+  border: solid;
+  /*text-align: center;*/
 }
 
 svg {
   margin: 1%;
+}
+
+/*input.form-control {
+  text-align: center !important;
+}*/
+
+input[type="radio"] {
+  text-align: center !important;
 }
