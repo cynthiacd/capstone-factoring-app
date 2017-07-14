@@ -9,6 +9,7 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
+import TrinomialProgressCharts from './components/trinomial_progress_charts';
 import TrinomialShow from './components/trinomial_show';
 import UserNew from './components/user_new';
 
@@ -23,7 +24,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/user/new" component={ UserNew } />
           <Route path="/practice" component={ TrinomialShow } />
-          <Route path="/" component={ TrinomialIndex } />
+          <Route path="/" component= () => ( <div>{ TrinomialIndex}{TrinomialProgressCharts}</div> ) />
         </Switch>
       </div>
     </BrowserRouter>
