@@ -14,8 +14,12 @@ class TrinomialProgressCharts extends Component {
     console.log("in TrinomialProgressCharts");
     return (
       <div className="progress-chart">
-        <Gauge value={87} width={400} height={320} label="Progress Plus Plus"/>
+        <Gauge value={87} width={200} height={160} label="Plus Plus"/>
+        <Gauge value={92} width={200} height={160} label="Minus Plus"/>
+        <Gauge value={43} width={200} height={160} label="Minus Minus"/>
+        <Gauge value={22} width={200} height={160} label="Plus Minus"/>
       </div>
+
     );
   }
 }

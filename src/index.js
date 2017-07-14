@@ -24,9 +24,11 @@ ReactDOM.render(
         <Switch>
           <Route path="/user/new" component={ UserNew } />
           <Route path="/practice" component={ TrinomialShow } />
-          <Route path="/" component= () => ( <div>{ TrinomialIndex}{TrinomialProgressCharts}</div> ) />
+          <Route path="/" component={ ()=> ( <div><TrinomialIndex/><TrinomialProgressCharts/></div> ) }/>
         </Switch>
       </div>
     </BrowserRouter>
   </Provider>
   , document.querySelector('.container'));
+
+  // { ()=> (<div><TrinomialShow/><TrinomialInputForm/></div>) }

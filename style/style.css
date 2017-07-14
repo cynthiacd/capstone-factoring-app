@@ -20,3 +20,7 @@ div.form-group {
 input {
   display: inline-block;
 }
+
+svg {
+  margin: 1%;
+}
