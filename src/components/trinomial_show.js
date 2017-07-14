@@ -28,9 +28,9 @@ class TrinomialShow extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
-    // I can check the answer if I want or I can send the answer back with the post API ...
+    // to access users id of pattern: values.userIdPattern
 
+    // I can check the answer if I want or I can send the answer back with the post API ...
     values["solution1"] = this.props.data.trinomial.solution1
     values["solution2"] = this.props.data.trinomial.solution2
     delete values.step1
@@ -76,14 +76,7 @@ class TrinomialShow extends Component {
             <div>
               <label>Pattern</label>
               <div>
-                <Field label="Plus Plus" name="pattern" component = { this.renderField } type="radio" value="plus_plus" />
-                <Field label="Plus Minus" name="pattern" component = { this.renderField } type="radio" value="minus_plus"/>
-                <Field label="Minus Minus" name="pattern" component = { this.renderField } type="radio" value="minus_minus"/>
-                <Field label="Plus Minus" name="pattern" component = { this.renderField } type="radio" value="plus_minus"/>
-              </div>
-              <label>Pattern</label>
-              <div>
-                <Field name="Pattern" component="select">
+                <Field name="userIdPattern" component="select">
                   <option />
                   <option value="plus_plus">Plus Plus</option>
                   <option value="minus_plus">Minus Plus</option>

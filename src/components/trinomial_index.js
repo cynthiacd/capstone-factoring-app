@@ -10,9 +10,7 @@ class TrinomialIndex extends Component {
     return (
       <div>
         <div><Header /></div>
-        <div className="Progress-Chart">
-          <TrinomialProgressCharts />
-        </div>
+        <div><TrinomialProgressCharts /></div>
       </div>
     );
   }

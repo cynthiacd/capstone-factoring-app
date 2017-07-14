@@ -1,26 +1,18 @@
+* {
+  font-family: 'Calibri';
+}
+
 .btn {
   margin: 1%;
 }
 
 .header {
   border-bottom: solid;
-  background: lightgrey;
+  text-align: center;
 }
 
 .trinomial-general-form {
   text-align: center;
-}
-
-div.form-group {
-  margin: 1%;
-  display: inline-block;
-  width: auto;
-}
-
-input {
-  display: inline-block;
-  border: solid;
-  /*text-align: center;*/
 }
 
 svg {
