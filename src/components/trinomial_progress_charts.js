@@ -12,7 +12,7 @@ class TrinomialProgressCharts extends Component {
 
   render () {
     console.log("in TrinomialProgressCharts");
-    console.log(this.props);
+    // console.log(this.props);
     const report = this.props.report;
 
     if (!report) {
@@ -24,10 +24,10 @@ class TrinomialProgressCharts extends Component {
     }
     return (
       <div className="progress-chart">
-        <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus"/>
-        <Gauge value={92} width={200} height={160} label="Minus Plus"/>
-        <Gauge value={43} width={200} height={160} label="Minus Minus"/>
-        <Gauge value={22} width={200} height={160} label="Plus Minus"/>
+        <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
+        <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus"/>
+        <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus"/>
+        <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus"/>
       </div>
     );
   }
