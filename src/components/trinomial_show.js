@@ -31,15 +31,16 @@ class TrinomialShow extends Component {
     // to access users id of pattern: values.userIdPattern
 
     // I can check the answer if I want or I can send the answer back with the post API ...
-    values["solution1"] = this.props.data.trinomial.solution1
-    values["solution2"] = this.props.data.trinomial.solution2
-    delete values.step1
-    delete values.step2
+    values["solution1"] = this.props.data.trinomial.solution1;
+    values["solution2"] = this.props.data.trinomial.solution2;
+    delete values.step1;
+    delete values.step2;
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
-    values["score"] = score
-    values["username"] = "user1"
+    values["score"] = score;
+    values["username"] = "user1";
     values["pattern"] = this.props.data.trinomial.pattern;
-    values["id"] = this.props.data.trinomial.id
+    values["id"] = this.props.data.trinomial.id;
+    values["type"] = this.props.data.trinomial.type;
 
     this.props.checkTrinomial(values, () => {
       // this is a callback function that should be called after the API post

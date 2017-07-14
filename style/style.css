@@ -26,3 +26,21 @@ svg {
 input[type="radio"] {
   text-align: center !important;
 }
+
+div {
+  margin: 0.5%;
+}
+
+h1 {
+  text-align: center;
+  margin: 3%;
+}
+
+div.container {
+  max-width: 85% !important;
+}
+
+svg {
+  margin-left: 5%;
+  border: solid;
+}

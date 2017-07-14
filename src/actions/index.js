@@ -7,7 +7,7 @@ export const FETCH_REPORT = "fetch_report";
 const ROOT_URL = "http://localhost:3000"
 
 export function fetchTrinomial() {
-  const request = axios.get(`${ROOT_URL}/trinomials`);
+  const request = axios.get(`${ROOT_URL}/trinomial`);
 
   return {
     type: FETCH_TRINOMIAL,
@@ -16,7 +16,7 @@ export function fetchTrinomial() {
 }
 
 export function checkTrinomial(values, callback) {
-  const request = axios.post(`${ROOT_URL}/trinomials/check`, values)
+  const request = axios.post(`${ROOT_URL}/trinomial/check`, values)
     .then( () => callback() );
 
   return {
@@ -27,7 +27,7 @@ export function checkTrinomial(values, callback) {
 
 export function fetchReport() {
   console.log("in fetch Report");
-  const request = axios.get(`${ROOT_URL}/users/report`);
+  const request = axios.get(`${ROOT_URL}/user/report`);
 
   return {
     type: FETCH_REPORT,

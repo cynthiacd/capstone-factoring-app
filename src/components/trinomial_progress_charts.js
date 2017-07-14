@@ -23,11 +23,21 @@ class TrinomialProgressCharts extends Component {
       );
     }
     return (
-      <div className="progress-chart">
-        <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
-        <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus"/>
-        <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus"/>
-        <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus"/>
+      <div>
+        <div className="progress-chart">
+          <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
+          <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus"/>
+          <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus"/>
+          <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus"/>
+          <Gauge value={ report["plus_dbl_sq"] } width={200} height={160} label="Plus Dbl Sq"/>
+          <Gauge value={ report["minus_dbl_sq"] } width={200} height={160} label="Minus Dbl Sq"/>
+          <Gauge value={ report["diff_sq"] } width={200} height={160} label="Difference of Squares"/>
+          <Gauge value={ report["gcf"] } width={200} height={160} label="GCF"/>
+          <Gauge value={ report["prime"] } width={200} height={160} label="Prime"/>
+          <Gauge value={ report["a>1"] } width={200} height={160} label="a > 1"/>
+          <Gauge value={ report["ones_and_zeros"] } width={200} height={160} label="Ones and Zeros"/>
+        </div>
+        <h1>Total Problems Completed: { report["total_problems"] }</h1>
       </div>
     );
   }
