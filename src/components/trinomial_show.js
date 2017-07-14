@@ -173,4 +173,4 @@ const afterSubmit = function (result, dispatch) {
 export default reduxForm({
   form: 'TrinomialInputForm',
   onSubmitSuccess: afterSubmit
-})(connect(mapStateToProps, { fetchTrinomial, checkTrinomial })(TrinomialShow));
+})( connect(mapStateToProps, { fetchTrinomial, checkTrinomial })(TrinomialShow) );
