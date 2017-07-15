@@ -11,6 +11,11 @@ class TrinomialShow extends Component {
     this.props.fetchTrinomial();
   }
 
+  // use this to test your api calls of getting trinomials
+  // componentWillUpdate() {
+  //   this.props.fetchTrinomial();
+  // }
+
   renderField(field) {
     const { meta: { touched, error } } = field;
     const className = `form-group ${ touched && error ? 'has-danger' : ''}`;
@@ -69,7 +74,7 @@ class TrinomialShow extends Component {
         <div className="problem">
           <Link to="/"> Back </Link>
           <p>Pattern: { trinomial.pattern }</p>
-          <h2 className="trinomial-general-form">{ trinomial.a }x<sup>2</sup> { trinomial.general_form }</h2>
+          <h1 className="trinomial-general-form">{ trinomial.a }x<sup>2</sup> { trinomial.general_form }</h1>
         </div>
 
         <div className="ans-input-form">

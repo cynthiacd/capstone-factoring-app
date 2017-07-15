@@ -10,9 +10,15 @@ class Header extends Component {
       <div className="header">
         <h1>Trinomial Factoring Practice</h1>
           <div className="navigation-bar">
-              <Link className="btn btn-primary" to="/practice">
-                Practice
-              </Link>
+            <Link className="btn btn-primary" to="/videos">
+              Learn How to Factor
+            </Link>
+            <Link className="btn btn-primary" to="/learn/">
+              Learn the Patterns
+            </Link>
+            <Link className="btn btn-primary" to="/practice">
+              Practice
+            </Link>
             <Link className="btn btn-primary" to="/user/new">
               Sing Up
             </Link>

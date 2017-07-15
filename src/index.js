@@ -9,7 +9,7 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
-import TrinomialProgressCharts from './components/trinomial_progress_charts';
+// import TrinomialProgressCharts from './components/trinomial_progress_charts';
 import TrinomialShow from './components/trinomial_show';
 import UserNew from './components/user_new';
 
