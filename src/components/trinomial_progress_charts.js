@@ -32,11 +32,12 @@ class TrinomialProgressCharts extends Component {
           <Gauge value={ report["plus_dbl_sq"] } width={200} height={160} label="Plus Dbl Sq"/>
           <Gauge value={ report["minus_dbl_sq"] } width={200} height={160} label="Minus Dbl Sq"/>
           <Gauge value={ report["diff_sq"] } width={200} height={160} label="Difference of Squares"/>
+          <Gauge value={ report["a_greater_one"] } width={200} height={160} label="a > 1"/>
           <Gauge value={ report["gcf"] } width={200} height={160} label="GCF"/>
           <Gauge value={ report["prime"] } width={200} height={160} label="Prime"/>
-          <Gauge value={ report["a_greater_one"] } width={200} height={160} label="a > 1"/>
           <Gauge value={ report["ones_and_zeros"] } width={200} height={160} label="Ones and Zeros"/>
         </div>
+        <div><p>* If you don't see any reports, we don't have enough data to assess your level, please keep practicing</p></div>
         <h1>Total Problems Completed: { report["total_problems"] }</h1>
       </div>
     );
