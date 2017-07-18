@@ -15,7 +15,7 @@ class Header extends Component {
             <Link className="btn btn-primary" to="/learn/">
               Learn the Patterns
             </Link>
-            <Link className="btn btn-primary" to="/practice">
+            <Link className="btn btn-primary" to="/practice/custom">
               Practice
             </Link>
             <Link className="btn btn-primary" to="/user/new">

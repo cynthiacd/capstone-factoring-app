@@ -56,10 +56,11 @@ class TrinomialShow extends Component {
       // this is a callback function that should be called after the API post
       // window.alert("Your problem was graded");
       console.log("your problem was graded");
+      const { pattern } = this.props.match.params;
       // call fetchTrinomial to get a new problem without reloading the page
       // right now this might be working eventhough you could have an asyc issue
       // its slow enough that this is occuring after the checkTrinomial
-      this.props.fetchTrinomial();
+      this.props.fetchTrinomial(pattern);
     });
   }
 
@@ -116,17 +117,17 @@ const validate = function(values) {
   const errors = {};
   // how do you pass the pattern to this function - not in scope ...
   // might need to research another way to do validations
-  if ( !values.userIdPattern || values !== pattern() ) {
-    errors.userIdPattern = "Remember - identify the pattern by the signs of the operations in general form";
-  }
-
-  if (!values.step2) {
-    errors.step2 = "hint -set up final expression =()()"
-  }
+  // if ( !values.userIdPattern ) {
+  //   errors.userIdPattern = "Remember - identify the pattern by the signs of the operations in general form";
+  // }
+  //
+  // if (!values.step2) {
+  //   errors.step2 = "hint -set up final expression =()()"
+  // }
 
   // want to run the string against a regex to see if matches form =(blah)(blah) ...
   if (!values.final) {
-    errors.final = "you must enter a final expression"
+    errors.final = "Enter your final expression in the form: =(x+e)(x+f)"
   }
   return errors;
 }

@@ -11,7 +11,7 @@ export function fetchTrinomial(pattern) {
   console.log("in fetch Trinomial");
   console.log(pattern);
 
-  const request = axios.get(`${ROOT_URL}/trinomial`);
+  const request = axios.get(`${ROOT_URL}/trinomial/${pattern}`);
 
   return {
     type: FETCH_TRINOMIAL,
