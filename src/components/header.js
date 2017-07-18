@@ -10,7 +10,7 @@ class Header extends Component {
       <div className="header">
         <h1>Trinomial Factoring Practice</h1>
           <div className="navigation-bar">
-            <Link className="btn btn-primary" to="/videos">
+            <Link className="btn btn-primary" to="/video">
               Learn How to Factor
             </Link>
             <Link className="btn btn-primary" to="/learn/">

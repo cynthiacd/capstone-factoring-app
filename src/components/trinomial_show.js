@@ -11,9 +11,8 @@ class TrinomialShow extends Component {
     this.props.fetchTrinomial();
   }
 
-  // use this to test your api calls of getting trinomials
   // componentWillUpdate() {
-  //   this.props.fetchTrinomial();
+  //   this.props.fetchTrinomial()
   // }
 
   renderField(field) {
@@ -74,7 +73,7 @@ class TrinomialShow extends Component {
         <div className="problem">
           <Link to="/"> Back </Link>
           <p>Pattern: { trinomial.pattern }</p>
-          <h1 className="trinomial-general-form">{ trinomial.a }x<sup>2</sup> { trinomial.general_form }</h1>
+          <h2 className="trinomial-general-form">{ trinomial.a }x<sup>2</sup> { trinomial.general_form }</h2>
         </div>
 
         <div className="ans-input-form">

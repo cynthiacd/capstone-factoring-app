@@ -13,13 +13,13 @@ export default function( state = {}, action ) {
       console.log("logging from checking trinomial - after posting solution to API");
       // what shoudl I return here ? I want a new problem - need to remove the current trinomial
       // I can add to the state any response back from API
-      const newState = { ...state };
-      delete newState.trinomial;
+      // const newState = { ...state };
+      // delete newState.trinomial;
       // this returns a blank state - no more trinomial attached - hoping this would cause trinomial show to re-render
       // it does but componentDidMount doesn't get called with a re-render so a new problem doesn't appear and stuck on
       // loading
-      console.log(newState);
-      return newState;
+      // console.log(newState);
+      return state;
 
       // lodash method did not work
       // return _.omit( state, action.payload );

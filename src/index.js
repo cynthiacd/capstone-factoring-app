@@ -9,8 +9,8 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
-// import TrinomialProgressCharts from './components/trinomial_progress_charts';
 import TrinomialShow from './components/trinomial_show';
+import Video from './components/instructional_video';
 import UserNew from './components/user_new';
 
 // you forgot to put in the first argumnet of promise to the applyMiddleware function
@@ -24,6 +24,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/user/new" component={ UserNew } />
           <Route path="/practice" component={ TrinomialShow } />
+          <Route path="/video" component={ Video } />
           <Route path="/" component={ TrinomialIndex } />
         </Switch>
       </div>
