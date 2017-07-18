@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
 class Header extends Component {
 
   render() {
     return (
       <div className="header">
-        <h1>Trinomial Factoring Practice</h1>
+        <Link to="/"><h1>Trinomial Factoring Practice</h1></Link>
           <div className="navigation-bar">
-            <Link className="btn btn-primary" to="/video">
+            <Link className="btn btn-primary" to="/learn/video">
               Learn How to Factor
             </Link>
             <Link className="btn btn-primary" to="/learn/">

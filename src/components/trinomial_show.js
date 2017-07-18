@@ -8,11 +8,14 @@ class TrinomialShow extends Component {
   // this is a react Component life cycle method that auto calls when the page is first loaded or refreshed
   // but not if the state changes and the component is re-rendered
   componentDidMount() {
-    this.props.fetchTrinomial();
+    const { pattern } = this.props.match.params;
+    console.log("in componentDidMount");
+    console.log(pattern);
+    this.props.fetchTrinomial(pattern);
   }
 
-  // componentWillUpdate() {
-  //   this.props.fetchTrinomial()
+  // pattern() {
+  //   return this.props.data.trinomial.pattern
   // }
 
   renderField(field) {
@@ -27,6 +30,9 @@ class TrinomialShow extends Component {
           type={ field.type }
           { ...field.input }
         />
+        <div className="text-help">
+          { touched ? error : "" }
+        </div>
       </div>
     );
   }
@@ -37,7 +43,7 @@ class TrinomialShow extends Component {
     // I can check the answer if I want or I can send the answer back with the post API ...
     values["solution1"] = this.props.data.trinomial.solution1;
     values["solution2"] = this.props.data.trinomial.solution2;
-    delete values.step1;
+    // delete values.step1;
     delete values.step2;
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score;
@@ -51,6 +57,8 @@ class TrinomialShow extends Component {
       // window.alert("Your problem was graded");
       console.log("your problem was graded");
       // call fetchTrinomial to get a new problem without reloading the page
+      // right now this might be working eventhough you could have an asyc issue
+      // its slow enough that this is occuring after the checkTrinomial
       this.props.fetchTrinomial();
     });
   }
@@ -79,15 +87,11 @@ class TrinomialShow extends Component {
         <div className="ans-input-form">
           <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
             <div>
-              <label>Pattern</label>
-              <div>
-                <Field name="userIdPattern" component="select">
-                  <option />
-                  <option value="plus_plus">Plus Plus</option>
-                  <option value="minus_plus">Minus Plus</option>
-                  <option value="minus_minus">Minus Minus</option>
-                </Field>
-              </div>
+              <Field
+                label="Pattern"
+                name="userIdPattern"
+                component={ this.renderField }
+              />
 
               <Field
                 label="Step 2"
@@ -108,17 +112,37 @@ class TrinomialShow extends Component {
   }
 }
 
+const validate = function(values) {
+  const errors = {};
+  // how do you pass the pattern to this function - not in scope ...
+  // might need to research another way to do validations
+  if ( !values.userIdPattern || values !== pattern() ) {
+    errors.userIdPattern = "Remember - identify the pattern by the signs of the operations in general form";
+  }
+
+  if (!values.step2) {
+    errors.step2 = "hint -set up final expression =()()"
+  }
+
+  // want to run the string against a regex to see if matches form =(blah)(blah) ...
+  if (!values.final) {
+    errors.final = "you must enter a final expression"
+  }
+  return errors;
+}
+
 const mapStateToProps = function(state) {
-  // console.log("in mapStateToProps");
-  // console.log(state.trinomial);
+  console.log( "in mapStateToProps" );
+  console.log( this );
   return { data: state.trinomial };
 }
 
 const afterSubmit = function (result, dispatch) {
-  dispatch(reset('TrinomialInputForm'));
+  dispatch( reset('TrinomialInputForm') );
 }
 
 export default reduxForm({
+  validate,
   form: 'TrinomialInputForm',
   onSubmitSuccess: afterSubmit
 })( connect(mapStateToProps, { fetchTrinomial, checkTrinomial })(TrinomialShow) );

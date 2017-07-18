@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-// need to npm install react-redux router
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
@@ -13,8 +12,6 @@ import TrinomialShow from './components/trinomial_show';
 import Video from './components/instructional_video';
 import UserNew from './components/user_new';
 
-// you forgot to put in the first argumnet of promise to the applyMiddleware function
-// and that caused your API bug
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
@@ -23,8 +20,9 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/user/new" component={ UserNew } />
+          <Route path="/practice/:pattern" component={ TrinomialShow } />
           <Route path="/practice" component={ TrinomialShow } />
-          <Route path="/video" component={ Video } />
+          <Route path="/learn/video" component={ Video } />
           <Route path="/" component={ TrinomialIndex } />
         </Switch>
       </div>
@@ -32,4 +30,5 @@ ReactDOM.render(
   </Provider>
   , document.querySelector('.container'));
 
-  // { ()=> (<div><TrinomialShow/><TrinomialInputForm/></div>) }
+// example of how to return two components - use callback
+// { ()=> (<div><TrinomialShow/><TrinomialInputForm/></div>) }
