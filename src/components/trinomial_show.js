@@ -52,6 +52,9 @@ class TrinomialShow extends Component {
     values["id"] = this.props.data.trinomial.id;
     values["type"] = this.props.data.trinomial.type;
 
+    // right now passing action creator checkTrinomial values to post to API and callback function - that will call the action
+    // creator fetchTrinomial - all passing pattern ...
+    // this is not best practice - should probably write own middleware to control this
     this.props.checkTrinomial(values, () => {
       // this is a callback function that should be called after the API post
       // window.alert("Your problem was graded");

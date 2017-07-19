@@ -12,6 +12,7 @@ import TrinomialShow from './components/trinomial_show';
 import Video from './components/instructional_video';
 import UserNew from './components/user_new';
 
+// promise is a middleware that we import - can write own if you want...
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
