@@ -65,6 +65,7 @@ class TrinomialShow extends Component {
       // its slow enough that this is occuring after the checkTrinomial
       this.props.fetchTrinomial(pattern);
     });
+    // this.props.checkTrinomial(values, values["pattern"]);
   }
 
   render() {

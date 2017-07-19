@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import React from 'react';
 import TrinomialProgressCharts from './trinomial_progress_charts';
 import Header from './header';
 
-class TrinomialIndex extends Component {
+const TrinomialIndex = () => {
 
-  render() {
-    return (
-      <div>
-        <div><Header /></div>
-        <div><TrinomialProgressCharts /></div>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <div><Header /></div>
+      <div><TrinomialProgressCharts /></div>
+    </div>
+  );
+};
 
 export default TrinomialIndex;
