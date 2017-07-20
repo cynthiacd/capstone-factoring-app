@@ -6,17 +6,11 @@ import { fetchTrinomial, checkTrinomial } from '../actions';
 
 class TrinomialShow extends Component {
   // this is a react Component life cycle method that auto calls when the page is first loaded or refreshed
-  // but not if the state changes and the component is re-rendered
+  // but this function will not auto run if the state changes and the component re-renders
   componentDidMount() {
     const { pattern } = this.props.match.params;
-    // console.log("in componentDidMount");
-    // console.log(pattern);
     this.props.fetchTrinomial(pattern);
   }
-
-  // pattern() {
-  //   return this.props.data.trinomial.pattern
-  // }
 
   renderField(field) {
     const { meta: { touched, error } } = field;
@@ -39,32 +33,15 @@ class TrinomialShow extends Component {
 
   onSubmit(values) {
     // to access users id of pattern: values.userIdPattern
-
-    // I can check the answer if I want or I can send the answer back with the post API ...
-    values["solution1"] = this.props.data.trinomial.solution1;
-    values["solution2"] = this.props.data.trinomial.solution2;
-    // delete values.step1;
     delete values.step2;
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score;
-    values["username"] = "user1";
-    values["pattern"] = this.props.data.trinomial.pattern;
-    values["id"] = this.props.data.trinomial.id;
-    values["type"] = this.props.data.trinomial.type;
 
-    // right now passing action creator checkTrinomial values to post to API and callback function - that will call the action
-    // creator fetchTrinomial - all passing pattern ...
-    // // this is not best practice - should probably write own middleware to control this
-    // this.props.checkTrinomial(values, () => {
-    //   // this is a callback function that should be called after the API post
-    //   // window.alert("Your problem was graded");
-    //   // console.log("your problem was graded");
-    //   // const { pattern } = this.props.match.params;
-    //   // call fetchTrinomial to get a new problem without reloading the page
-    //   // right now this might be working eventhough you could have an asyc issue
-    //   // its slow enough that this is occuring after the checkTrinomial
-    //   this.props.fetchTrinomial(pattern);
-    // });
+    // will need to access state and grab user's token here - once you set up user auth
+    values["username"] = "user1";
+    // critical that you send back the pattern!
+    values["pattern"] = this.props.data.trinomial.pattern;
+
     this.props.checkTrinomial(values, values["pattern"]);
   }
 

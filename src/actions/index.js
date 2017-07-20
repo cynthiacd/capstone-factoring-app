@@ -18,6 +18,7 @@ export function fetchTrinomial(pattern) {
     payload: request
   };
 }
+// old checkTrinomial function that used Promise middleware
 // export function checkTrinomial(values, callback) {
 //   const request = axios.post(`${ROOT_URL}/trinomial/check`, values)
 //     .then( () => callback() );
@@ -39,15 +40,16 @@ export function checkTrinomial(values, pattern) {
       .then( response => {
         dispatch({ type: CHECK_TRINOMIAL })
 
+        // have to make api call - can't use fetchTrinomial() cause that is set up
+        // to use the redux-promise middleware ...
+        // could probably redo fetchTrinomial to use Thunk and then call the function
         axios.get(`${ROOT_URL}/trinomial/${pattern}`)
           .then( ({data}) => {
             dispatch({ type: FETCH_TRINOMIAL, payload: data })
           })
+          .catch( ()=> {} );
       })
-      // .then( () => {
-      //     fetchTrinomial(pattern);
-      //     dispatch( {type: FETCH_TRINOMIA L } );
-      // })
+
       .catch( () => { });
   }
 }
