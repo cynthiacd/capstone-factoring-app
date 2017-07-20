@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
+import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
@@ -13,7 +14,7 @@ import Video from './components/instructional_video';
 import UserNew from './components/user_new';
 
 // promise is a middleware that we import - can write own if you want...
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk)(createStore);
 
 ReactDOM.render(
   <Provider store={ createStoreWithMiddleware(reducers) }>

@@ -11,7 +11,7 @@ class TrinomialProgressCharts extends Component {
   }
 
   render () {
-    console.log("in TrinomialProgressCharts");
+    // console.log("in TrinomialProgressCharts");
     // console.log(this.props);
     const report = this.props.report;
 
@@ -77,8 +77,8 @@ class TrinomialProgressCharts extends Component {
 // };
 
 function mapStateToProps(state) {
-  console.log("in mapStateToProps");
-  console.log(state);
+  // console.log("in mapStateToProps");
+  // console.log(state);
   return { report: state.user.report };
 };
 

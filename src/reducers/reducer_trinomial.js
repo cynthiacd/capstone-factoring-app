@@ -5,12 +5,12 @@ export default function( state = {}, action ) {
   switch (action.type) {
 
     case FETCH_TRINOMIAL:
-      console.log("logging from trinomial reducer:");
-      console.log(action.payload.data);
+      // console.log("logging from trinomial reducer:");
+      // console.log(action.payload.data);
 
       return ( { trinomial: action.payload.data } );
     case CHECK_TRINOMIAL:
-      console.log("logging from checking trinomial - after posting solution to API");
+      // console.log("logging from checking trinomial - after posting solution to API");
       // what shoudl I return here ? I want a new problem - need to remove the current trinomial
       // I can add to the state any response back from API
       const newState = { ...state };

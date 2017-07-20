@@ -9,8 +9,8 @@ class TrinomialShow extends Component {
   // but not if the state changes and the component is re-rendered
   componentDidMount() {
     const { pattern } = this.props.match.params;
-    console.log("in componentDidMount");
-    console.log(pattern);
+    // console.log("in componentDidMount");
+    // console.log(pattern);
     this.props.fetchTrinomial(pattern);
   }
 
@@ -58,7 +58,7 @@ class TrinomialShow extends Component {
     this.props.checkTrinomial(values, () => {
       // this is a callback function that should be called after the API post
       // window.alert("Your problem was graded");
-      console.log("your problem was graded");
+      // console.log("your problem was graded");
       const { pattern } = this.props.match.params;
       // call fetchTrinomial to get a new problem without reloading the page
       // right now this might be working eventhough you could have an asyc issue
@@ -137,8 +137,8 @@ const validate = function(values) {
 }
 
 const mapStateToProps = function(state) {
-  console.log( "in mapStateToProps" );
-  console.log( this );
+  // console.log( "in mapStateToProps" );
+  // console.log( this );
   return { data: state.trinomial };
 }
 

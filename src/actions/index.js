@@ -8,9 +8,8 @@ export const FETCH_REPORT = "fetch_report";
 const ROOT_URL = "https://trinomial-factoring-api.herokuapp.com";
 
 export function fetchTrinomial(pattern) {
-  console.log("in fetch Trinomial");
-  console.log(pattern);
-
+  console.log("Fetching Trinomial");
+  // console.log(pattern);
   const request = axios.get(`${ROOT_URL}/trinomial/${pattern}`);
 
   return {
@@ -30,7 +29,7 @@ export function checkTrinomial(values, callback) {
 }
 
 export function fetchReport() {
-  console.log("in fetch Report");
+  console.log("Fetching Report");
   const request = axios.get(`${ROOT_URL}/user/report`);
 
   return {
