@@ -54,18 +54,18 @@ class TrinomialShow extends Component {
 
     // right now passing action creator checkTrinomial values to post to API and callback function - that will call the action
     // creator fetchTrinomial - all passing pattern ...
-    // this is not best practice - should probably write own middleware to control this
-    this.props.checkTrinomial(values, () => {
-      // this is a callback function that should be called after the API post
-      // window.alert("Your problem was graded");
-      // console.log("your problem was graded");
-      const { pattern } = this.props.match.params;
-      // call fetchTrinomial to get a new problem without reloading the page
-      // right now this might be working eventhough you could have an asyc issue
-      // its slow enough that this is occuring after the checkTrinomial
-      this.props.fetchTrinomial(pattern);
-    });
-    // this.props.checkTrinomial(values, values["pattern"]);
+    // // this is not best practice - should probably write own middleware to control this
+    // this.props.checkTrinomial(values, () => {
+    //   // this is a callback function that should be called after the API post
+    //   // window.alert("Your problem was graded");
+    //   // console.log("your problem was graded");
+    //   // const { pattern } = this.props.match.params;
+    //   // call fetchTrinomial to get a new problem without reloading the page
+    //   // right now this might be working eventhough you could have an asyc issue
+    //   // its slow enough that this is occuring after the checkTrinomial
+    //   this.props.fetchTrinomial(pattern);
+    // });
+    this.props.checkTrinomial(values, values["pattern"]);
   }
 
   render() {
