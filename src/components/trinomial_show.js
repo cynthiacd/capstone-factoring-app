@@ -48,16 +48,20 @@ class TrinomialShow extends Component {
   render() {
     // console.log(this.props.data);
     const trinomial = this.props.data.trinomial;
+    console.log(trinomial);
     const superScript2 = "2".sup
     const { handleSubmit } = this.props;
 
-    if (!trinomial) {
+    // now this is not working - since changing my middleware
+    if ( !trinomial ) {
+      console.log("heelo in loading jsx");
       return (
         <div>
           <p>Loading...</p>
         </div>
       );
     }
+
     return (
       <div>
         <div className="problem">

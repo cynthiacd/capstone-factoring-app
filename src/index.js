@@ -11,6 +11,7 @@ import reducers from './reducers';
 import TrinomialIndex from './components/trinomial_index';
 import TrinomialShow from './components/trinomial_show';
 import Video from './components/instructional_video';
+import LearnPatterns from './components/learn_patterns';
 import UserNew from './components/user_new';
 
 // promise is a middleware that we import - can write own if you want...
@@ -23,7 +24,8 @@ ReactDOM.render(
         <Switch>
           <Route path="/user/new" component={ UserNew } />
           <Route path="/practice/:pattern" component={ TrinomialShow } />
-          <Route path="/learn/video" component={ Video } />
+          <Route path="/learn_video" component={ Video } />
+          <Route path="/learn_patterns" component={ LearnPatterns } />
           <Route path="/" component={ TrinomialIndex } />
         </Switch>
       </div>
