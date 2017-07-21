@@ -15,7 +15,7 @@ import LearnPatterns from './components/learn_patterns';
 import UserNew from './components/user_new';
 
 // promise is a middleware that we import - can write own if you want...
-const createStoreWithMiddleware = applyMiddleware(promise, reduxThunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 ReactDOM.render(
   <Provider store={ createStoreWithMiddleware(reducers) }>
