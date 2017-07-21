@@ -44,13 +44,3 @@ export function fetchReport() {
       .catch();
   }
 };
-
-// export function fetchReport() {
-//   console.log("Fetching Report");
-//   const request = axios.get(`${ROOT_URL}/user/report`);
-//
-//   return {
-//     type: FETCH_REPORT,
-//     payload: request
-//   };
-// }
