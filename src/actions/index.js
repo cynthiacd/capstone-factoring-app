@@ -1,3 +1,5 @@
+// using Thunk as middleware - all actions will return a function
+// Thunk gets appllied in the main index.js file
 import axios from "axios";
 import { browserHistory } from 'react-router';
 import {
@@ -23,7 +25,6 @@ export function fetchTrinomial(pattern) {
   }
 }
 
-// using thunk here - cause we need to checkTrinomial and then fetch a new one
 export function checkTrinomial(values, pattern) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/trinomial/check`, values)
