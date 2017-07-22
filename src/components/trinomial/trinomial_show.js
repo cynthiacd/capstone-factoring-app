@@ -6,12 +6,9 @@ import { Field, reduxForm, reset } from 'redux-form';
 import * as actions from '../../actions';
 
 class TrinomialShow extends Component {
-  // this is a react Component life cycle method that auto calls when the page is first loaded or refreshed
-  // but this function will not auto run if the state changes and the component re-renders
   componentDidMount() {
-    console.log("going to get a problem");
-    console.log(this.props.params.pattern);
-    // const { pattern } = this.props.match.params;
+    // console.log("going to get a problem");
+    // console.log(this.props.params.pattern);
     this.props.fetchTrinomial(this.props.params.pattern);
   }
 
@@ -35,11 +32,10 @@ class TrinomialShow extends Component {
   }
 
   onSubmit(values) {
-    // to access users id of pattern: values.userIdPattern
+    // to access users id of pattern: values.userIdPattern - how to get this in the validate function...
     delete values.step2;
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score;
-
     // will need to access state and grab user's token here - once you set up user auth
     values["username"] = "user1";
     // critical that you send back the pattern!
@@ -49,7 +45,6 @@ class TrinomialShow extends Component {
   }
 
   render() {
-    console.log("rendring the trinomial show");
     const trinomial = this.props.data.trinomial;
     const superScript2 = "2".sup
     const { handleSubmit } = this.props;
@@ -119,8 +114,6 @@ const validate = function(values) {
 }
 
 const mapStateToProps = function(state) {
-  // console.log( "in mapStateToProps" );
-  // console.log( this );
   return { data: state.trinomial };
 }
 

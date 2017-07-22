@@ -26,6 +26,7 @@ class Report extends Component {
     }
     return (
       <div>
+        <h1>Total Problems Completed: { report["total_problems"] }</h1>
         <div className="progress-chart">
           <Link to="/practice/plus_plus">
             <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
@@ -67,8 +68,6 @@ class Report extends Component {
             <Gauge value={ report["prime"] } width={200} height={160} label="Prime"/>
           </Link>
         </div>
-        <div><p>* If you don't see any reports, we don't have enough data to assess your level, please keep practicing</p></div>
-        <h1>Total Problems Completed: { report["total_problems"] }</h1>
       </div>
     );
   }

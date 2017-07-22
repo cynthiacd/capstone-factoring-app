@@ -16,8 +16,10 @@ export function fetchTrinomial(pattern) {
   return function(dispatch) {
     console.log("fetching a new trinomial");
     axios.get(`${ROOT_URL}/trinomial/${pattern}`)
-      .then( ({data}) => { dispatch( { type: FETCH_TRINOMIAL, payload: data } ) })
-      .catch({ });
+      .then( ({data}) => { dispatch( { type: FETCH_TRINOMIAL, payload: data } )
+      }).catch(
+        () => {}
+      );
   }
 }
 
@@ -26,20 +28,12 @@ export function checkTrinomial(values, pattern) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/trinomial/check`, values)
       .then(
-        response => { dispatch( { type: CHECK_TRINOMIAL } )
-                      dispatch( fetchTrinomial(pattern) )
-                    })
-
-        // could probably redo fetchTrinomial to use Thunk and then call the function
-        // is this how you call another action inside an action?
-
-      //   axios.get(`${ROOT_URL}/trinomial/${pattern}`)
-      //     .then( ({data}) => {
-      //       dispatch({ type: FETCH_TRINOMIAL, payload: data })
-      //     })
-      //     .catch( ()=> {} );
-      // })
-      .catch( () => {} )
+        response => {
+          dispatch( {type: CHECK_TRINOMIAL} );
+          dispatch( fetchTrinomial(pattern) );
+      }).catch(
+        () => {}
+      );
   }
 }
 
@@ -51,7 +45,7 @@ export function fetchReport() {
         dispatch({ type: FETCH_REPORT, payload: data })
       })
       .catch(
-        // console.log("failure to get report")
+        () => {}
       );
   }
 }
@@ -68,8 +62,9 @@ export function signinUser({username, password}) {
         localStorage.setItem('token', response.data.auth_token);
         // redirect to route '/report'
         browserHistory.push("/report");
-      })
-      .catch( ()=> { dispatch(authError("Bad signin info")) });
+      }).catch(
+        ()=> { dispatch( authError("Bad signin info") )}
+      );
   }
 }
 
