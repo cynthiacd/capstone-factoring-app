@@ -8,7 +8,6 @@ import * as actions from '../../actions';
 class Singin extends Component {
 
   onSubmit({username, password}) {
-    // console.log(this.props);
     this.props.signinUser( {username, password} );
   }
 
@@ -55,6 +54,7 @@ const mapStateToProps = function(state) {
   // return { errorMessage: state.auth.error };
   return state;
 }
+
 // function validate(values) {
 //   const errors = {};
 //   return errors;
@@ -63,10 +63,3 @@ const mapStateToProps = function(state) {
 export default reduxForm({
   form: 'signin'
   })( connect (mapStateToProps, actions)(Singin) );
-
-
-// export default reduxForm({
-//   validate,
-//   form: 'TrinomialInputForm',
-//   onSubmitSuccess: afterSubmit
-// })( connect(mapStateToProps, actions )(TrinomialShow) );

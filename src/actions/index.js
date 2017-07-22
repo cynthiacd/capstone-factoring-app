@@ -52,13 +52,15 @@ export function fetchReport() {
 export function signinUser({username, password}) {
   return function(dispatch) {
     console.log("made it to singinUser");
-    // axios.post(`${ROOT_URL}/user/singin`, { username, password })
-    //   .then( response => {
+    axios.post(`${ROOT_URL}/user/singin`, { username, password })
+      .then( response => {
     //     // if good
     //     // save JWT token
     //     // redirect to route '/report'
-    //     browserHistory.push("/report");
-    //   })
-    //   .catch();
+        browserHistory.push("/report")
+      })
+      .catch(
+        console.log("failure to signin user")
+      );
   }
 }
