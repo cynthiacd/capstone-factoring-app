@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Gauge from 'react-svg-gauge';
-import { Link } from 'react-router-dom';
-import { fetchReport } from '../actions';
+import { Link } from 'react-router';
+import { fetchReport } from '../../actions';
 
 
 class TrinomialProgressCharts extends Component {

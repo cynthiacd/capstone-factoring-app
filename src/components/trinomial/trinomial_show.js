@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm, reset } from 'redux-form';
-import { fetchTrinomial, checkTrinomial } from '../actions';
+import { fetchTrinomial, checkTrinomial } from '../../actions';
 
 class TrinomialShow extends Component {
   // this is a react Component life cycle method that auto calls when the page is first loaded or refreshed
