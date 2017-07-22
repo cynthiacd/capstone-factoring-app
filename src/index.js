@@ -39,7 +39,8 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={ App }>
         <IndexRoute component={ LearnPatterns } />
-        <Route path="singin" component={ Signin } />
+        <Route path="learn_video" component={ Video } />
+        <Route path="signin" component={ Signin } />
         <Route path="report" component={ Report } />
         <Route path="practice/:pattern" component={ TrinomialShow } />
       </Route>

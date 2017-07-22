@@ -15,7 +15,7 @@ export default function( state = {}, action ) {
     case FETCH_REPORT:
       // console.log("logging from fetch report reducer:");
       // console.log(action.payload );
-      return ( { report: action.payload } );
+      return { ...state, report: action.payload };
     default:
       return state;
   };

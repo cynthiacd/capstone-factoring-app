@@ -1,13 +1,10 @@
 import React from 'react';
-import Header from './header';
 
 const Video = () => {
 
   // console.log("in render of video component");
   return (
     <div>
-      <div><Header /></div>
-
       <div className="video-detail">
         <div className="embed-responsive embed-responsive-16by9">
           <iframe
