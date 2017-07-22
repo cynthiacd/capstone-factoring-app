@@ -14,8 +14,6 @@ class Report extends Component {
 
   render () {
     const report = this.props.report;
-    console.log("report on props below:");
-    console.log(this.props.report);
 
     if (!report) {
       return (

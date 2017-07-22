@@ -11,7 +11,6 @@ export default function (ComposedComponent) {
 
     // this will boot user back to home
     componentWillMount() {
-      console.log(this.props.authenticated);
       if(!this.props.authenticated) { this.context.router.push("/"); }
     }
 

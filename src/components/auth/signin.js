@@ -76,4 +76,4 @@ const mapStateToProps = function(state) {
 
 export default reduxForm({
   form: 'signin'
-  })(connect (mapStateToProps, actions)(Singin) );
+  })( connect (mapStateToProps, actions)(Singin) );

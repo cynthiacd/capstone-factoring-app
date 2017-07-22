@@ -7,17 +7,16 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
+
 import App from './components/app';
 import RequireAuth from './components/auth/require_auth';
 import Signin from './components/auth/signin';
-// import Signup from './components/auth/singup';
+import Signup from './components/auth/signup';
 import Signout from './components/auth/signout';
 import Video from './components/instructional_video';
 import LearnPatterns from './components/learn_patterns';
 import TrinomialShow from './components/trinomial/trinomial_show';
 import Report from './components/trinomial/trinomial_progress_report';
-
-
 
 // promise is a middleware that we import - can write own if you want...
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -37,6 +36,7 @@ ReactDOM.render(
         <IndexRoute component={ LearnPatterns } />
         <Route path="learn_video" component={ Video } />
         <Route path="signin" component={ Signin } />
+        <Route path="signup" component={ Signup } />
         <Route path="signout" component={ Signout } />
         <Route path="report" component={ RequireAuth(Report) } />
         <Route path="practice/:pattern" component={ RequireAuth(TrinomialShow) } />

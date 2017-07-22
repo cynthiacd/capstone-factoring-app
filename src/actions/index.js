@@ -56,6 +56,17 @@ export function fetchReport() {
   }
 }
 
+export function signupUser({username, password, password_confirmation}) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
+      .then(
+        response => { browserHistory.push("/signin"); }
+      ).catch(
+        () => { dispatch( authError("Something went wrong - you were not signed up - please try again") )}
+      );
+  }
+}
+
 export function signinUser({username, password}) {
   return function(dispatch) {
     // console.log("made it to singinUser");
@@ -69,7 +80,7 @@ export function signinUser({username, password}) {
         // redirect to route '/report'
         browserHistory.push("/report");
       }).catch(
-        ()=> { dispatch( authError("Invalid username and/or password") )}
+        () => { dispatch( authError("Invalid username and/or password") )}
       );
   }
 }
