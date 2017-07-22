@@ -42,7 +42,6 @@ export function fetchReport() {
   return function(dispatch) {
     axios.get(`${ROOT_URL}/user/report`)
       .then( ({data}) => {
-        console.log("go the report");
         dispatch({ type: FETCH_REPORT, payload: data })
       })
       .catch(
@@ -64,7 +63,7 @@ export function signinUser({username, password}) {
         // redirect to route '/report'
         browserHistory.push("/report");
       }).catch(
-        ()=> { dispatch( authError("Bad signin info") )}
+        ()=> { dispatch( authError("Invalid username and/or password") )}
       );
   }
 }

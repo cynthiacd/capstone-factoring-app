@@ -1,4 +1,4 @@
-import { FETCH_REPORT, AUTH_USER, UNAUTH_USER } from '../actions/types';
+import { FETCH_REPORT, AUTH_USER, UNAUTH_USER, AUTH_ERROR } from '../actions/types';
 
 
 export default function( state = {}, action ) {
@@ -8,6 +8,9 @@ export default function( state = {}, action ) {
 
     case UNAUTH_USER:
       return { ...state, authenticated: false };
+
+    case AUTH_ERROR:
+      return { ...state, error: action.payload };
 
     case FETCH_REPORT:
       // console.log("logging from fetch report reducer:");

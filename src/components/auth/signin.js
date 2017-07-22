@@ -12,6 +12,7 @@ class Singin extends Component {
   }
 
   renderField(field) {
+
     const { meta: { touched, error} } = field;
     const className = `form-group ${ touched && error ? 'has-danger' : ''}`;
 
@@ -20,11 +21,22 @@ class Singin extends Component {
         <label>{ field.label }</label>
         <input
           className="form-control"
-          type="text"
+          type={ field.type }
           { ...field.input }
         />
       </div>
     );
+  }
+
+  renderAlert() {
+    if( this.props.errorMessage) {
+      return (
+        <div className="alert alert-danger">
+          <strong> {this.props.errorMessage }</strong>
+        </div>
+      );
+    }
+
   }
 
   render() {
@@ -34,13 +46,16 @@ class Singin extends Component {
         <Field
           label="Username"
           name="username"
+          type="text"
           component={ this.renderField }
         />
         <Field
           label="Password"
           name="password"
+          type="password"
           component={ this.renderField }
         />
+        { this.renderAlert() }
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link className="btn btn-danger" to="/">
           Cancel
@@ -51,8 +66,7 @@ class Singin extends Component {
 }
 
 const mapStateToProps = function(state) {
-  // return { errorMessage: state.auth.error };
-  return state;
+  return { errorMessage: state.user.error };  // return state;
 }
 
 // function validate(values) {
@@ -62,4 +76,4 @@ const mapStateToProps = function(state) {
 
 export default reduxForm({
   form: 'signin'
-  })( connect (mapStateToProps, actions)(Singin) );
+  })(connect (mapStateToProps, actions)(Singin) );
