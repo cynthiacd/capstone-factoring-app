@@ -8,7 +8,7 @@ import * as actions from '../../actions';
 
 class Report extends Component {
   componentDidMount() {
-    console.log("about to go get report");
+    // console.log("about to go get report");
     this.props.fetchReport();
   }
 
@@ -75,7 +75,7 @@ class Report extends Component {
 }
 
 const mapStateToProps = function(state) {
-  console.log("in mapStateToProps for report");
+  // console.log("in mapStateToProps for report");
   // console.log(state);
   return { report: state.user.report };
 };

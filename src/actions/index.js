@@ -47,18 +47,18 @@ export function fetchReport() {
       })
       .catch();
   }
-};
+}
 
 export function signinUser({username, password}) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/user/singin`, { username, password })
-      .then( response => {
-        // if good
-        // save JWT token
-        // redirect to route '/report'
-        console.log("user is logged in");
-        browserHistory.push("/report");
-      })
-      .catch();
+    console.log("made it to singinUser");
+    // axios.post(`${ROOT_URL}/user/singin`, { username, password })
+    //   .then( response => {
+    //     // if good
+    //     // save JWT token
+    //     // redirect to route '/report'
+    //     browserHistory.push("/report");
+    //   })
+    //   .catch();
   }
 }

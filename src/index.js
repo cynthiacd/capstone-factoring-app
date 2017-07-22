@@ -15,7 +15,7 @@ import Signin from './components/auth/signin';
 // import Singout from './components/auth/singout';
 
 import TrinomialShow from './components/trinomial/trinomial_show';
-import Report from './components/trinomial/trinomial_progress_charts';
+import Report from './components/trinomial/trinomial_progress_report';
 
 import Video from './components/instructional_video';
 import LearnPatterns from './components/learn_patterns';

@@ -7,6 +7,11 @@ import * as actions from '../../actions';
 
 class Singin extends Component {
 
+  onSubmit({username, password}) {
+    // console.log(this.props);
+    this.props.signinUser( {username, password} );
+  }
+
   renderField(field) {
     const { meta: { touched, error} } = field;
     const className = `form-group ${ touched && error ? 'has-danger' : ''}`;
@@ -21,13 +26,6 @@ class Singin extends Component {
         />
       </div>
     );
-  }
-
-  onSubmit(values) {
-    console.log(values);
-    this.props.signinUser( {username, password} );
-
-    // need to pose to API this belongs as action
   }
 
   render() {
@@ -52,10 +50,23 @@ class Singin extends Component {
     );
   }
 }
-//
+
+const mapStateToProps = function(state) {
+  // return { errorMessage: state.auth.error };
+  return state;
+}
 // function validate(values) {
 //   const errors = {};
 //   return errors;
 // }
 
-export default reduxForm({form: 'SinginForm'})(Singin);
+export default reduxForm({
+  form: 'signin'
+  })( connect (mapStateToProps, actions)(Singin) );
+
+
+// export default reduxForm({
+//   validate,
+//   form: 'TrinomialInputForm',
+//   onSubmitSuccess: afterSubmit
+// })( connect(mapStateToProps, actions )(TrinomialShow) );
