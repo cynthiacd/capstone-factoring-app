@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
-// import { createUser } from '../actions';
+import * as actions from '../../actions';
+
 
 class Singin extends Component {
 
@@ -24,6 +25,7 @@ class Singin extends Component {
 
   onSubmit(values) {
     console.log(values);
+    this.props.signinUser( {username, password} );
 
     // need to pose to API this belongs as action
   }

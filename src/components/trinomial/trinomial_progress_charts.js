@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Gauge from 'react-svg-gauge';
 import { Link } from 'react-router';
-import { fetchReport } from '../../actions';
+// import { fetchReport } from '../../actions';
+import * as actions from '../../actions';
 
 
-class TrinomialProgressCharts extends Component {
+class Report extends Component {
   componentDidMount() {
+    console.log("about to go get report");
     this.props.fetchReport();
   }
 
   render () {
     const report = this.props.report;
+    console.log("report on props below:");
+    console.log(this.props.report);
 
     if (!report) {
       return (
@@ -71,9 +75,9 @@ class TrinomialProgressCharts extends Component {
 }
 
 const mapStateToProps = function(state) {
-  // console.log("in mapStateToProps");
+  console.log("in mapStateToProps for report");
   // console.log(state);
   return { report: state.user.report };
 };
 
-export default connect(mapStateToProps, { fetchReport })(TrinomialProgressCharts);
+export default connect(mapStateToProps, actions)(Report);

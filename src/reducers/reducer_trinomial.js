@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import { FETCH_TRINOMIAL, CHECK_TRINOMIAL } from '../actions';
+import { FETCH_TRINOMIAL, CHECK_TRINOMIAL } from '../actions/types';
 
 export default function( state = {}, action ) {
   switch (action.type) {

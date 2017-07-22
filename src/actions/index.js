@@ -1,8 +1,11 @@
 import axios from "axios";
-
-export const FETCH_TRINOMIAL = "fetch_trinomial";
-export const CHECK_TRINOMIAL = "check_trinomial";
-export const FETCH_REPORT = "fetch_report";
+import { browserHistory } from 'react-router';
+import {
+  FETCH_TRINOMIAL,
+  CHECK_TRINOMIAL,
+  FETCH_REPORT,
+  SIGNIN_USER
+} from './types';
 
 const ROOT_URL = "http://localhost:3000";
 // const ROOT_URL = "https://trinomial-factoring-api.herokuapp.com";
@@ -39,8 +42,23 @@ export function fetchReport() {
   return function(dispatch) {
     axios.get(`${ROOT_URL}/user/report`)
       .then( ({data}) => {
+        console.log("go the report");
         dispatch({ type: FETCH_REPORT, payload: data })
       })
       .catch();
   }
 };
+
+export function signinUser({username, password}) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/user/singin`, { username, password })
+      .then( response => {
+        // if good
+        // save JWT token
+        // redirect to route '/report'
+        console.log("user is logged in");
+        browserHistory.push("/report");
+      })
+      .catch();
+  }
+}
