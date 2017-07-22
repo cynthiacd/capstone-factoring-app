@@ -9,7 +9,7 @@ import reducers from './reducers';
 // import { AUTH_USER } from './actions';
 
 import App from './components/app';
-// import RequireAuth from './components/auth/require_auth';
+import RequireAuth from './components/auth/require_auth';
 import Signin from './components/auth/signin';
 // import Signup from './components/auth/singup';
 import Signout from './components/auth/signout';
@@ -42,8 +42,8 @@ ReactDOM.render(
         <Route path="learn_video" component={ Video } />
         <Route path="signin" component={ Signin } />
         <Route path="signout" component={ Signout } />
-        <Route path="report" component={ Report } />
-        <Route path="practice/:pattern" component={ TrinomialShow } />
+        <Route path="report" component={ RequireAuth(Report) } />
+        <Route path="practice/:pattern" component={ RequireAuth(TrinomialShow) } />
       </Route>
     </Router>
   </Provider>
