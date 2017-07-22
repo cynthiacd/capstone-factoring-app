@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 class Header extends Component {
 
   renderSignLinks() {
-    if (this.props.authenticated) {
+    if (this.props.authenticated === true) {
       // show link to signout
       return (
         <Link className="btn btn-primary" to="/signout">

@@ -52,7 +52,7 @@ export function fetchReport() {
 
 export function signinUser({username, password}) {
   return function(dispatch) {
-    console.log("made it to singinUser");
+    // console.log("made it to singinUser");
     axios.post(`${ROOT_URL}/user/singin`, { username, password })
       .then( response => {
         // if good
@@ -65,6 +65,13 @@ export function signinUser({username, password}) {
       }).catch(
         ()=> { dispatch( authError("Invalid username and/or password") )}
       );
+  }
+}
+
+export function signoutUser() {
+  return function(dispatch) {
+    localStorage.removeItem('token');
+    dispatch({ type: UNAUTH_USER });
   }
 }
 

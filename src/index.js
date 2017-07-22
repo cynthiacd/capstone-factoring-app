@@ -12,7 +12,7 @@ import App from './components/app';
 // import RequireAuth from './components/auth/require_auth';
 import Signin from './components/auth/signin';
 // import Signup from './components/auth/singup';
-// import Singout from './components/auth/singout';
+import Signout from './components/auth/signout';
 
 import TrinomialShow from './components/trinomial/trinomial_show';
 import Report from './components/trinomial/trinomial_progress_report';
@@ -41,6 +41,7 @@ ReactDOM.render(
         <IndexRoute component={ LearnPatterns } />
         <Route path="learn_video" component={ Video } />
         <Route path="signin" component={ Signin } />
+        <Route path="signout" component={ Signout } />
         <Route path="report" component={ Report } />
         <Route path="practice/:pattern" component={ TrinomialShow } />
       </Route>
