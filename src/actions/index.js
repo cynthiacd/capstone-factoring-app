@@ -4,7 +4,8 @@ import {
   FETCH_TRINOMIAL,
   CHECK_TRINOMIAL,
   FETCH_REPORT,
-  SIGNIN_USER
+  SIGNIN_USER,
+  AUTH_USER,
 } from './types';
 
 const ROOT_URL = "http://localhost:3000";
@@ -45,7 +46,9 @@ export function fetchReport() {
         console.log("go the report");
         dispatch({ type: FETCH_REPORT, payload: data })
       })
-      .catch();
+      .catch(
+        console.log("failure to get report")
+      );
   }
 }
 
@@ -55,7 +58,9 @@ export function signinUser({username, password}) {
     axios.post(`${ROOT_URL}/user/singin`, { username, password })
       .then( response => {
     //     // if good
-    //     // save JWT token
+          // update state to indicate user is authenticated
+          dispatch({ type: AUTH_USER })
+    //     // save JWT token in the local storage - managed by user browser
     //     // redirect to route '/report'
         browserHistory.push("/report")
       })

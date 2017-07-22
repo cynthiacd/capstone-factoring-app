@@ -16,10 +16,10 @@ const Header = () => {
             Practice
           </Link>
           <Link className="btn btn-primary" to="/singin">
-            Log In
+            Signin
           </Link>
           <Link className="btn btn-primary" to="/signup">
-            Sign Up
+            Signup
           </Link>
         </div>
     </div>
