@@ -13,6 +13,8 @@ export default function( state = {}, action ) {
       // else { return ({ trinomial: action.payload }); }
       return ({ trinomial: action.payload });
       // return ({ trinomial: action.payload.data });
+
+    // maybe you should change this name check_trinomial - post_solution/work
     case CHECK_TRINOMIAL:
       const newState = { ...state };
       delete newState.trinomial;
