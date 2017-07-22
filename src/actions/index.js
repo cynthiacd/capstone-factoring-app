@@ -16,8 +16,10 @@ const ROOT_URL = "http://localhost:3000";
 
 export function fetchTrinomial(pattern) {
   return function(dispatch) {
-    console.log("fetching a new trinomial");
-    axios.get(`${ROOT_URL}/trinomial/${pattern}`)
+    // console.log("fetching a new trinomial");
+    axios.get(`${ROOT_URL}/trinomial/${pattern}`, {
+      headers: { authorization: localStorage.getItem('token') }
+    })
       .then( ({data}) => { dispatch( { type: FETCH_TRINOMIAL, payload: data } )
       }).catch(
         () => {}
@@ -27,7 +29,9 @@ export function fetchTrinomial(pattern) {
 
 export function checkTrinomial(values, pattern) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/trinomial/check`, values)
+    axios.post(`${ROOT_URL}/trinomial/check`, values, {
+      headers: { authorization: localStorage.getItem('token') }
+    })
       .then(
         response => {
           dispatch( {type: CHECK_TRINOMIAL} );
@@ -40,7 +44,9 @@ export function checkTrinomial(values, pattern) {
 
 export function fetchReport() {
   return function(dispatch) {
-    axios.get(`${ROOT_URL}/user/report`)
+    axios.get(`${ROOT_URL}/user/report`, {
+      headers: { authorization: localStorage.getItem('token') }
+    })
       .then( ({data}) => {
         dispatch({ type: FETCH_REPORT, payload: data })
       })
