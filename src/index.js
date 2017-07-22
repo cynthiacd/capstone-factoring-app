@@ -41,6 +41,7 @@ ReactDOM.render(
         <IndexRoute component={ LearnPatterns } />
         <Route path="singin" component={ Signin } />
         <Route path="report" component={ Report } />
+        <Route path="practice/:pattern" component={ TrinomialShow } />
       </Route>
     </Router>
   </Provider>

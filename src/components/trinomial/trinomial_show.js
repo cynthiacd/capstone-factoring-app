@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Field, reduxForm, reset } from 'redux-form';
 // import { fetchTrinomial, checkTrinomial } from '../../actions';
 import * as actions from '../../actions';
@@ -9,8 +9,10 @@ class TrinomialShow extends Component {
   // this is a react Component life cycle method that auto calls when the page is first loaded or refreshed
   // but this function will not auto run if the state changes and the component re-renders
   componentDidMount() {
-    const { pattern } = this.props.match.params;
-    this.props.fetchTrinomial(pattern);
+    console.log("going to get a problem");
+    console.log(this.props.params.pattern);
+    // const { pattern } = this.props.match.params;
+    this.props.fetchTrinomial(this.props.params.pattern);
   }
 
   renderField(field) {
@@ -42,11 +44,12 @@ class TrinomialShow extends Component {
     values["username"] = "user1";
     // critical that you send back the pattern!
     values["pattern"] = this.props.data.trinomial.pattern;
-    const { pattern } = this.props.match.params;
-    this.props.checkTrinomial(values, pattern);
+    // const { pattern } = this.props.match.params;
+    this.props.checkTrinomial(values, this.props.params.pattern);
   }
 
   render() {
+    console.log("rendring the trinomial show");
     const trinomial = this.props.data.trinomial;
     const superScript2 = "2".sup
     const { handleSubmit } = this.props;
@@ -129,4 +132,4 @@ export default reduxForm({
   validate,
   form: 'TrinomialInputForm',
   onSubmitSuccess: afterSubmit
-})( connect(mapStateToProps, actions )(TrinomialShow) );
+})( connect(mapStateToProps, actions )(TrinomialShow));

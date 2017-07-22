@@ -4,8 +4,9 @@ import {
   FETCH_TRINOMIAL,
   CHECK_TRINOMIAL,
   FETCH_REPORT,
-  SIGNIN_USER,
   AUTH_USER,
+  UNAUTH_USER,
+  AUTH_ERROR
 } from './types';
 
 const ROOT_URL = "http://localhost:3000";
@@ -24,18 +25,21 @@ export function fetchTrinomial(pattern) {
 export function checkTrinomial(values, pattern) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/trinomial/check`, values)
-      .then( response => {
-        dispatch({ type: CHECK_TRINOMIAL })
-        // have to make api call - can't use fetchTrinomial() cause that is set up
-        // to use the redux-promise middleware ...
+      .then(
+        response => { dispatch( { type: CHECK_TRINOMIAL } )
+                      dispatch( fetchTrinomial(pattern) )
+                    })
+
         // could probably redo fetchTrinomial to use Thunk and then call the function
-        axios.get(`${ROOT_URL}/trinomial/${pattern}`)
-          .then( ({data}) => {
-            dispatch({ type: FETCH_TRINOMIAL, payload: data })
-          })
-          .catch( ()=> {} );
-      })
-      .catch( () => {} );
+        // is this how you call another action inside an action?
+
+      //   axios.get(`${ROOT_URL}/trinomial/${pattern}`)
+      //     .then( ({data}) => {
+      //       dispatch({ type: FETCH_TRINOMIAL, payload: data })
+      //     })
+      //     .catch( ()=> {} );
+      // })
+      .catch( () => {} )
   }
 }
 
@@ -47,7 +51,7 @@ export function fetchReport() {
         dispatch({ type: FETCH_REPORT, payload: data })
       })
       .catch(
-        console.log("failure to get report")
+        // console.log("failure to get report")
       );
   }
 }
@@ -57,15 +61,21 @@ export function signinUser({username, password}) {
     console.log("made it to singinUser");
     axios.post(`${ROOT_URL}/user/singin`, { username, password })
       .then( response => {
-    //     // if good
-          // update state to indicate user is authenticated
-          dispatch({ type: AUTH_USER })
-    //     // save JWT token in the local storage - managed by user browser
-    //     // redirect to route '/report'
-        browserHistory.push("/report")
+        // if good
+        // update state to indicate user is authenticated
+        dispatch({ type: AUTH_USER });
+        // save JWT token in the local storage - managed by user's browser
+        localStorage.setItem('token', response.data.auth_token);
+        // redirect to route '/report'
+        browserHistory.push("/report");
       })
-      .catch(
-        console.log("failure to signin user")
-      );
+      .catch( ()=> { dispatch(authError("Bad signin info")) });
   }
+}
+
+export function authError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: error
+  };
 }
