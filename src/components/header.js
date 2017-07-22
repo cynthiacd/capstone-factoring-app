@@ -15,11 +15,11 @@ const Header = () => {
           <Link className="btn btn-primary" to="/practice/custom">
             Practice
           </Link>
-          <Link className="btn btn-primary" to="/user/new">
-            Sing Up
-          </Link>
-          <Link className="btn btn-primary" to="/user/login">
+          <Link className="btn btn-primary" to="/singin">
             Log In
+          </Link>
+          <Link className="btn btn-primary" to="/signup">
+            Sign Up
           </Link>
         </div>
     </div>

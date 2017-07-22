@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
 // import { createUser } from '../actions';
 
-class UserNew extends Component {
+class Singin extends Component {
+
   renderField(field) {
     const { meta: { touched, error} } = field;
     const className = `form-group ${ touched && error ? 'has-danger' : ''}`;
@@ -55,4 +56,4 @@ class UserNew extends Component {
 //   return errors;
 // }
 
-export default reduxForm({form: 'NewUserForm'})(UserNew);
+export default reduxForm({form: 'SinginForm'})(Singin);

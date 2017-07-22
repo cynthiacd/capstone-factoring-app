@@ -4,18 +4,19 @@ import { Provider } from 'react-redux';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-// import promise from 'redux-promise';
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
-// import TrinomialIndex from './components/trinomial_index';
 import App from './components/app';
-// import Auth from './components/auth';
+// import RequireAuth from './components/auth/require_auth';
+import Signin from './components/auth/signin';
+// import Signup from './components/auth/singup';
+// import Singout from './components/auth/singout';
 
 import TrinomialShow from './components/trinomial/trinomial_show';
 import TrinomialProgressCharts from './components/trinomial/trinomial_progress_charts';
 
-import UserNew from './components/user_new';
+
 
 import Video from './components/instructional_video';
 import LearnPatterns from './components/learn_patterns';
@@ -28,7 +29,8 @@ ReactDOM.render(
   <Provider store={ createStoreWithMiddleware(reducers) }>
     <Router history={browserHistory}>
       <Route path="/" component={ App }>
-        <IndexRoute component= { LearnPatterns } />
+        <IndexRoute component={ LearnPatterns } />
+        <Route path="singin" component={ Signin } />
       </Route>
     </Router>
   </Provider>

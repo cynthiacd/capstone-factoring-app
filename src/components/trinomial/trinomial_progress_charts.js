@@ -11,8 +11,6 @@ class TrinomialProgressCharts extends Component {
   }
 
   render () {
-    // console.log("in TrinomialProgressCharts");
-    // console.log(this.props);
     const report = this.props.report;
 
     if (!report) {
@@ -72,34 +70,10 @@ class TrinomialProgressCharts extends Component {
   }
 }
 
-// const mapStateToProps = function(state) {
-//   return { report: state.report };
-// };
-
-function mapStateToProps(state) {
+const mapStateToProps = function(state) {
   // console.log("in mapStateToProps");
   // console.log(state);
   return { report: state.user.report };
 };
 
 export default connect(mapStateToProps, { fetchReport })(TrinomialProgressCharts);
-// export default TrinomialProgressCharts;
-
-// const mapStateToProps = function(state) {
-//   // console.log("in mapStateToProps");
-//   // console.log(state.trinomial);
-//   return { data: state.trinomial };
-// }
-//
-// // function mapStateToProps(state) {
-//   // return { data: state.trinomial };
-// // }
-//
-// const afterSubmit = function (result, dispatch) {
-//   dispatch(reset('TrinomialInputForm'));
-// }
-//
-// export default reduxForm({
-//   form: 'TrinomialInputForm',
-//   onSubmitSuccess: afterSubmit
-// })(connect(mapStateToProps, { fetchTrinomial, checkTrinomial })(TrinomialShow));
