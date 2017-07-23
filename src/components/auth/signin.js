@@ -66,7 +66,7 @@ class Singin extends Component {
 }
 
 const mapStateToProps = function(state) {
-  return { errorMessage: state.user.error };  // return state;
+  return { errorMessage: state.user.errors };  // return state;
 }
 
 // function validate(values) {

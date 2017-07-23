@@ -28,12 +28,15 @@ class Signup extends Component {
     );
   }
 
+  // want to show custom alerts on errors back from api - but this is tricky
+  // might be better to format the errors on api side and then wont have to have so many
+  // conditionals/formatting on frontend
   renderAlert() {
     if( this.props.errorMessages) {
       if ( this.props.errorMessages["username"] && this.props.errorMessages["password_confirmation"] ) {
         return (
           <div className="alert alert-danger">
-            <p><strong>Username: { this.props.errorMessages["username"] }</strong></p>
+            <p><strong>Username { this.props.errorMessages["username"] }</strong></p>
             <p><strong>Passwords do not match</strong></p>
           </div>
       );} else if ( this.props.errorMessages["username"] ) {
@@ -83,7 +86,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = function(state) {
-  return { errorMessages: state.user.errors };  // return state;
+  return { errorMessages: state.user.errors };
 }
 
 // function validate(values) {
