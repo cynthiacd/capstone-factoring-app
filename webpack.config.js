@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'react', 'lodash', 'redux', 'react-redux', 'react-dom',
-  'faker', 'react-input-range', 'redux-form', 'redux-thunk'
+  'redux-form', 'redux-thunk', 'react-svg-gauge'
 ];
 
 module.exports = {
@@ -21,8 +21,9 @@ module.exports = {
       {
         use: 'babel-loader',
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
+
       {
         use: ['style-loader', 'css-loader'],
         test: /\.css$/

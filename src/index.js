@@ -18,6 +18,8 @@ import LearnPatterns from './components/learn_patterns';
 import TrinomialShow from './components/trinomial/trinomial_show';
 import Report from './components/trinomial/trinomial_progress_report';
 
+// webpack server is not loading the style.css but if I import here, it works
+import '../style/style.css';
 // promise is a middleware that we import - can write own if you want...
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
@@ -43,5 +45,4 @@ ReactDOM.render(
       </Route>
     </Router>
   </Provider>
-  , document.querySelector('.container')
-);
+  , document.querySelector('.container'));
