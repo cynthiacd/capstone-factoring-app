@@ -1,3 +1,4 @@
+
 // using Thunk as middleware - all actions will return a function
 // Thunk gets appllied in the main index.js file
 import axios from "axios";
@@ -56,13 +57,16 @@ export function fetchReport() {
   }
 }
 
-export function signupUser({username, password, password_confirmation}) {
+export function signupUser( {username, password, password_confirmation} ) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
       .then(
         response => { browserHistory.push("/signin"); }
       ).catch(
-        () => { dispatch( authError("Something went wrong - you were not signed up - please try again") )}
+        error => {
+          const errors = error.response.data;
+          dispatch( authError(errors) );
+        }
       );
   }
 }

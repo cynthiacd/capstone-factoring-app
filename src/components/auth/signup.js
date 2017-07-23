@@ -29,14 +29,25 @@ class Signup extends Component {
   }
 
   renderAlert() {
-    if( this.props.errorMessage) {
-      return (
-        <div className="alert alert-danger">
-          <strong> {this.props.errorMessage }</strong>
-        </div>
-      );
+    if( this.props.errorMessages) {
+      if ( this.props.errorMessages["username"] && this.props.errorMessages["password_confirmation"] ) {
+        return (
+          <div className="alert alert-danger">
+            <p><strong>Username: { this.props.errorMessages["username"] }</strong></p>
+            <p><strong>Passwords do not match</strong></p>
+          </div>
+      );} else if ( this.props.errorMessages["username"] ) {
+        return (
+          <div className="alert alert-danger">
+            <p><strong>Username: { this.props.errorMessages["username"] }</strong></p>
+          </div>
+      );} else if ( this.props.errorMessages["password_confirmation"] ) {
+        return (
+          <div className="alert alert-danger">
+            <p><strong>Passwords do not match</strong></p>
+          </div>
+      );}
     }
-
   }
 
   render() {
@@ -72,7 +83,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = function(state) {
-  return { errorMessage: state.user.error };  // return state;
+  return { errorMessages: state.user.errors };  // return state;
 }
 
 // function validate(values) {

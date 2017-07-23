@@ -10,7 +10,7 @@ export default function( state = {}, action ) {
       return { ...state, authenticated: false };
 
     case AUTH_ERROR:
-      return { ...state, error: action.payload };
+      return { ...state, errors: action.payload };
 
     case FETCH_REPORT:
       // console.log("logging from fetch report reducer:");
