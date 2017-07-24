@@ -8,7 +8,7 @@ const Video = () => {
       <div className="video-detail">
         <div className="embed-responsive embed-responsive-16by9">
           <iframe
-            clasName="embed-responsive-item"
+            className="embed-responsive-item"
             src={"http://www.youtube.com/embed/eF6zYNzlZKQ"}>
           </iframe>
         </div>
