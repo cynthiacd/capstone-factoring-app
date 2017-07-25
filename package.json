@@ -6,8 +6,7 @@
   "repository": "git@github.com:cynthiacd/capstone-factoring-app.git",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "NODE_ENV=production npm run clean && webpack -p",
-    "serve": "webpack-dev-server"
+    "build": "NODE_ENV=production npm run clean && webpack -p"
   },
   "author": "",
   "license": "ISC",
