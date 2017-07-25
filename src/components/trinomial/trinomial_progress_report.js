@@ -34,7 +34,7 @@ class Report extends Component {
             <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus"/>
           </Link>
 
-          <Link to="/practice/plus_plus">
+          <Link to="/practice/minus_minus">
             <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus"/>
           </Link>
 
