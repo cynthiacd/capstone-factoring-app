@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "repository": "git@github.com:cynthiacd/capstone-factoring-app.git",
+  "repository": "https://github.com/cynthiacd/capstone-factoring-app/tree/gh-pages",
   "scripts": {
     "clean": "rimraf dist",
     "build": "export NODE_ENV=production && npm run clean && webpack -p",
