@@ -2,7 +2,7 @@
 // using Thunk as middleware - all actions will return a function
 // Thunk gets appllied in the main index.js file
 import axios from "axios";
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import {
   FETCH_TRINOMIAL,
   CHECK_TRINOMIAL,
@@ -61,7 +61,7 @@ export function signupUser( {username, password, password_confirmation} ) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
       .then(
-        response => { browserHistory.push("/signin"); }
+        response => { hashHistory.push("/signin"); }
       ).catch(
         error => {
           const errors = error.response.data;
@@ -82,7 +82,7 @@ export function signinUser({username, password}) {
         // save JWT token in the local storage - managed by user's browser
         localStorage.setItem('token', response.data.auth_token);
         // redirect to route '/report'
-        browserHistory.push("/capstone-factoring-app/#/report");
+        hashHistory.push("/report");
       }).catch(
         () => { dispatch( authError("Invalid username and/or password") )}
       );

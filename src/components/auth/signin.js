@@ -41,7 +41,7 @@ class Singin extends Component {
   renderWelcome() {
     if ( this.props.welcomeMessage) {
       return (
-        <div><h4>Your signup was successful. Welcome new user. Please signin. </h4></div>
+        <div><h4>Your signup was successful. Welcome new user. Please sign in. </h4></div>
       );
     }
   }
@@ -70,15 +70,13 @@ class Singin extends Component {
             Cancel
           </Link>
         </form>
-      <div>
+      </div>
     );
   }
 }
 
 const mapStateToProps = function(state) {
-  return { errorMessage: state.user.errors,
-           welcomeMessage: state.user.welcomeNewUser
-  };
+  return { errorMessage: state.user.errors, welcomeMessage: state.user.welcomeNewUser };
 }
 
 // function validate(values) {
