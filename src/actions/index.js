@@ -74,7 +74,7 @@ export function signupUser( {username, password, password_confirmation} ) {
 export function signinUser({username, password}) {
   return function(dispatch) {
     // console.log("made it to singinUser");
-    axios.post(`${ROOT_URL}/user/singin`, { username, password })
+    axios.post(`${ROOT_URL}/user/signin`, { username, password })
       .then( response => {
         // if good
         // update state to indicate user is authenticated
