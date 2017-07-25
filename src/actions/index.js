@@ -82,7 +82,7 @@ export function signinUser({username, password}) {
         // save JWT token in the local storage - managed by user's browser
         localStorage.setItem('token', response.data.auth_token);
         // redirect to route '/report'
-        browserHistory.push("/report");
+        browserHistory.push("/capstone-factoring-app/#/report");
       }).catch(
         () => { dispatch( authError("Invalid username and/or password") )}
       );

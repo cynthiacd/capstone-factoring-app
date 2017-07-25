@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
@@ -34,7 +34,7 @@ if (token) {
 
 ReactDOM.render(
   <Provider store={ store }>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/" component={ App }>
         <IndexRoute component={ Home } />
         <Route path="learn_patterns" component={ LearnPatterns } />

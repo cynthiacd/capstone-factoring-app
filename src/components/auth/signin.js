@@ -36,37 +36,49 @@ class Singin extends Component {
         </div>
       );
     }
+  }
 
+  renderWelcome() {
+    if ( this.props.welcomeMessage) {
+      return (
+        <div><h4>Your signup was successful. Welcome new user. Please signin. </h4></div>
+      );
+    }
   }
 
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
-        <Field
-          label="Username"
-          name="username"
-          type="text"
-          component={ this.renderField }
-        />
-        <Field
-          label="Password"
-          name="password"
-          type="password"
-          component={ this.renderField }
-        />
-        { this.renderAlert() }
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link className="btn btn-danger" to="/">
-          Cancel
-        </Link>
-      </form>
+      <div>
+        { this.renderWelcome() }
+        <form onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
+          <Field
+            label="Username"
+            name="username"
+            type="text"
+            component={ this.renderField }
+          />
+          <Field
+            label="Password"
+            name="password"
+            type="password"
+            component={ this.renderField }
+          />
+          { this.renderAlert() }
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <Link className="btn btn-danger" to="/">
+            Cancel
+          </Link>
+        </form>
+      <div>
     );
   }
 }
 
 const mapStateToProps = function(state) {
-  return { errorMessage: state.user.errors };  // return state;
+  return { errorMessage: state.user.errors,
+           welcomeMessage: state.user.welcomeNewUser
+  };
 }
 
 // function validate(values) {
