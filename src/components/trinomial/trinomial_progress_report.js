@@ -23,38 +23,38 @@ class Report extends Component {
       );
     }
     return (
-      <div>
+      <div className="row report">
         <h1>Total Problems Completed: { report["total_problems"] }</h1>
         <div className="progress-chart">
-          <Link to="/practice/plus_plus">
+          <Link to="/practice/plus_plus" className="col-lg-3">
             <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/minus_plus">
+          <Link to="/practice/minus_plus" className="col-lg-3">
             <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/minus_minus">
+          <Link to="/practice/minus_minus" className="col-lg-3">
             <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/plus_minus">
+          <Link to="/practice/plus_minus" className="col-lg-3">
             <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/plus_dbl_sq">
+          <Link to="/practice/plus_dbl_sq" className="col-lg-3">
             <Gauge value={ report["plus_dbl_sq"] } width={200} height={160} label="Plus Double Square" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/minus_dbl_sq">
+          <Link to="/practice/minus_dbl_sq" className="col-lg-3">
             <Gauge value={ report["minus_dbl_sq"] } width={200} height={160} label="Minus Double Square" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/diff_sq">
+          <Link to="/practice/diff_sq" className="col-lg-3">
             <Gauge value={ report["diff_sq"] } width={200} height={160} label="Difference of Squares" color="#0275d8"/>
           </Link>
 
-          <Link to="/practice/a_greater_one">
+          <Link to="/practice/a_greater_one" className="col-lg-3">
             <Gauge value={ report["a_greater_one"] } width={200} height={160} label="a > 1" color="#0275d8"/>
           </Link>
         </div>
