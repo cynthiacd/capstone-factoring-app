@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Field, reduxForm, reset } from 'redux-form';
-// import { fetchTrinomial, checkTrinomial } from '../../actions';
 import * as actions from '../../actions';
 
 class TrinomialShow extends Component {
@@ -36,16 +35,13 @@ class TrinomialShow extends Component {
     delete values.step2;
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score;
+    values["pattern"] = this.props.data.trinomial.pattern;
 
     // this works to alert user that they are correct ...
     // if (score === 1) {
     //   alert("correct");
     // }
-    // will need to access state and grab user's token here - once you set up user auth
-    values["username"] = "user1";
-    // critical that you send back the pattern!
-    values["pattern"] = this.props.data.trinomial.pattern;
-    // const { pattern } = this.props.match.params;
+
     this.props.checkTrinomial(values, this.props.params.pattern);
   }
 
@@ -77,18 +73,7 @@ class TrinomialShow extends Component {
           <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
             <div>
               <Field
-                label="Pattern"
-                name="userIdPattern"
-                component={ this.renderField }
-              />
-
-              <Field
-                label="Step 2"
-                name="step2"
-                component={ this.renderField }
-              />
-              <Field
-                label="Final Answer"
+                label="Answer"
                 name="final"
                 component={ this.renderField }
               />
@@ -103,16 +88,6 @@ class TrinomialShow extends Component {
 
 const validate = function(values) {
   const errors = {};
-  // how do you pass the pattern to this function - not in scope ...
-  // might need to research another way to do validations
-  // if ( !values.userIdPattern ) {
-  //   errors.userIdPattern = "Remember - identify the pattern by the signs of the operations in general form";
-  // }
-  //
-  // if (!values.step2) {
-  //   errors.step2 = "hint -set up final expression =()()"
-  // }
-
   // want to run the string against a regex to see if matches form =(blah)(blah) ...
   if (!values.final) {
     errors.final = "Enter your final expression in the form: =(x+e)(x+f)"
