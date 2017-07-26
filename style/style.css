@@ -15,9 +15,6 @@
   text-align: center;
 }
 
-svg {
-  margin: 1%;
-}
 
 /*input.form-control {
   text-align: center !important;
@@ -40,7 +37,17 @@ div.container {
   max-width: 85% !important;
 }
 
+svg text {
+  fill: black !important;
+}
+
+
+
 svg {
+  margin: 1%;
   margin-left: 5%;
-  border: solid;
+}
+
+svg:hover {
+  background-color: lightblue;
 }

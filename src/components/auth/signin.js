@@ -39,7 +39,6 @@ class Singin extends Component {
   }
 
   renderWelcome() {
-    console.log(this.props);
     if ( this.props.welcomeMessage) {
       return (
         <div><h4>Your signup was successful. Welcome new user. Please sign in. </h4></div>

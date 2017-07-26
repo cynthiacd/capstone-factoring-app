@@ -31,39 +31,31 @@ class Report extends Component {
           </Link>
 
           <Link to="/practice/minus_plus">
-            <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus"/>
+            <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus" color="#0275d8"/>
           </Link>
 
           <Link to="/practice/minus_minus">
-            <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus"/>
+            <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus" color="#0275d8"/>
           </Link>
 
           <Link to="/practice/plus_minus">
-            <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus"/>
+            <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus" color="#0275d8"/>
           </Link>
 
           <Link to="/practice/plus_dbl_sq">
-            <Gauge value={ report["plus_dbl_sq"] } width={200} height={160} label="Plus Dbl Sq"/>
+            <Gauge value={ report["plus_dbl_sq"] } width={200} height={160} label="Plus Double Square" color="#0275d8"/>
           </Link>
 
           <Link to="/practice/minus_dbl_sq">
-            <Gauge value={ report["minus_dbl_sq"] } width={200} height={160} label="Minus Dbl Sq"/>
+            <Gauge value={ report["minus_dbl_sq"] } width={200} height={160} label="Minus Double Square" color="#0275d8"/>
           </Link>
 
           <Link to="/practice/diff_sq">
-            <Gauge value={ report["diff_sq"] } width={200} height={160} label="Difference of Squares"/>
+            <Gauge value={ report["diff_sq"] } width={200} height={160} label="Difference of Squares" color="#0275d8"/>
           </Link>
 
           <Link to="/practice/a_greater_one">
-            <Gauge value={ report["a_greater_one"] } width={200} height={160} label="a > 1"/>
-          </Link>
-
-          <Link to="/practice/gcf">
-            <Gauge value={ report["gcf"] } width={200} height={160} label="GCF"/>
-          </Link>
-
-          <Link to="/practice/prime">
-            <Gauge value={ report["prime"] } width={200} height={160} label="Prime"/>
+            <Gauge value={ report["a_greater_one"] } width={200} height={160} label="a > 1" color="#0275d8"/>
           </Link>
         </div>
       </div>
@@ -73,7 +65,7 @@ class Report extends Component {
 
 const mapStateToProps = function(state) {
   // console.log("in mapStateToProps for report");
-  // console.log(state);
+  console.log(state);
   return { report: state.user.report };
 };
 
