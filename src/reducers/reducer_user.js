@@ -13,7 +13,7 @@ export default function( state = {}, action ) {
       return newState;
 
     case NEW_USER:
-      console.log("in reducer new user");
+      // console.log("in new user reducer");
       return { ...state, newUser: true}
 
     case AUTH_ERROR:

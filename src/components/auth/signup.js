@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import * as actions from '../../actions';
 
 
 class Signup extends Component {
 
   onSubmit( {username, password, password_confirmation} ) {
+
     this.props.signupUser( {username, password, password_confirmation} );
   }
 
@@ -94,6 +95,12 @@ const mapStateToProps = function(state) {
 //   return errors;
 // }
 
+const afterSubmit = function (result, dispatch) {
+  // console.log("in afterSubmit");
+  dispatch( reset('signupForm') );
+}
+
 export default reduxForm({
-  form: 'signup'
+  form: 'signupForm',
+  onSubmitSuccess: afterSubmit
 })(connect (mapStateToProps, actions)(Signup) );

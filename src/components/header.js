@@ -34,6 +34,16 @@ class Header extends Component {
       );}
   }
 
+  renderWelcomeMessage() {
+    if (this.props.authenticated === true) {
+      return (
+        <div className="col-lg-6 welcome-message">
+          <h5>Welcome { this.props.username }</h5>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="row header">
@@ -41,9 +51,7 @@ class Header extends Component {
           <div className="col-lg-6">
             <Link to="/"><h1>Trinomial Factoring Practice</h1></Link>
           </div>
-          <div className="col-lg-6 welcome-message">
-            <h5>Welcome { this.props.username }</h5>
-          </div>
+          { this.renderWelcomeMessage() }
         </div>
 
         <div className="row nav-buttons">
