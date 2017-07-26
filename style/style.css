@@ -38,11 +38,6 @@ div.container {
   max-width: 85% !important;
 }
 
-svg {
-  text-align: center;
-  border: solid;
-}
-
 svg text {
   fill: black !important;
 }
@@ -68,14 +63,19 @@ h2, h3, h4, h5 {
   text-align: left;
 }
 
-.progress-chart {
-  border: solid;
+.problem-traker {
+  text-align: center;
 }
 
-/*.nav-buttons {
-  border: solid;
+.problem-traker h3 {
+  font-weight: bold;
+  color: midnightblue;
 }
 
-.text-headers {
-  border: solid;
-}*/
+a.col-lg-3 {
+  text-align: center;
+}
+
+.form-group {
+  margin-top: 2%;
+}

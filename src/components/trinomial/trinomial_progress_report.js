@@ -23,11 +23,11 @@ class Report extends Component {
       );
     }
     return (
-      <div className="report">
-
-        <h1>Total Problems Completed: { report["total_problems"] }</h1>
-        <h3>Total problems Correct: { report["total_problems_correct"]}</h3>
-
+      <div className="row report">
+        <div className="row problem-traker">
+          <h3 className="col-lg-6">Total Problems Completed: { report["total_problems"] }</h3>
+          <h3 className="col-lg-6">Total Problems Correct: { report["total_problems_correct"]}</h3>
+        </div>
         <div className="row progress-chart">
           <Link to="/practice/plus_plus" className="col-lg-3">
             <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>

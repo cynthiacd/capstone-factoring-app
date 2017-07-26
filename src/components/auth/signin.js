@@ -41,7 +41,7 @@ class Singin extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="row">
         <form method="post" onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
           <Field
             label="Username"

@@ -21,8 +21,9 @@ export function fetchTrinomial(pattern) {
     axios.get(`${ROOT_URL}/trinomial/${pattern}`, {
       headers: { authorization: localStorage.getItem('token') }
     })
-      .then( ({data}) => { dispatch( { type: FETCH_TRINOMIAL, payload: data } )
-      }).catch(
+      .then(
+        ( {data} ) => { dispatch( { type: FETCH_TRINOMIAL, payload: data } )}
+      ).catch(
         () => {}
       );
   }
@@ -65,7 +66,7 @@ export function signupUser( {username, password, password_confirmation} ) {
     axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
       .then(
         response => {
-          console.log("sign up was successful - now trying to signin user");
+          console.log("sign up was successful - now signing in user");
           dispatch( signinUser({username, password}) );
         }
       ).catch(

@@ -6,8 +6,6 @@ import * as actions from '../../actions';
 
 class TrinomialShow extends Component {
   componentDidMount() {
-    // console.log("going to get a problem");
-    // console.log(this.props.params.pattern);
     this.props.fetchTrinomial(this.props.params.pattern);
   }
 
@@ -88,7 +86,7 @@ class TrinomialShow extends Component {
 
 const validate = function(values) {
   const errors = {};
-  // want to run the string against a regex to see if matches form =(blah)(blah) ...
+  // would be nice to check against a reg-ex for correct form
   if (!values.final) {
     errors.final = "Enter your final expression in the form: =(x+e)(x+f)"
   }

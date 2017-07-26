@@ -47,31 +47,33 @@ class Signup extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form method="post" onSubmit= { handleSubmit( this.onSubmit.bind(this) ) }>
-        <Field
-          label="Username"
-          name="username"
-          type="text"
-          component={ this.renderField }
-        />
-        <Field
-          label="Password"
-          name="password"
-          type="password"
-          component={ this.renderField }
-        />
-        <Field
-          label="Password Confirmation"
-          name="password_confirmation"
-          type="password"
-          component={ this.renderField }
-        />
-        { this.renderAlert() }
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link className="btn btn-danger" to="/">
-          Cancel
-        </Link>
-      </form>
+      <div className="row">
+        <form method="post" onSubmit= { handleSubmit( this.onSubmit.bind(this) ) }>
+          <Field
+            label="Username"
+            name="username"
+            type="text"
+            component={ this.renderField }
+          />
+          <Field
+            label="Password"
+            name="password"
+            type="password"
+            component={ this.renderField }
+          />
+          <Field
+            label="Password Confirmation"
+            name="password_confirmation"
+            type="password"
+            component={ this.renderField }
+          />
+          { this.renderAlert() }
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <Link className="btn btn-danger" to="/">
+            Cancel
+          </Link>
+        </form>
+      </div>
     );
   }
 }

@@ -18,9 +18,9 @@ import LearnPatterns from './components/trinomial/learn_patterns';
 import TrinomialShow from './components/trinomial/trinomial_show';
 import Report from './components/trinomial/trinomial_progress_report';
 
-// loading through html is not working but it working through here
 import '../style/style.css';
-// promise is a middleware that we import - can write own if you want...
+
+// Thunk is a middleware that we import - we can also write out own middleware
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
