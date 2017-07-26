@@ -9,7 +9,8 @@ import {
   FETCH_REPORT,
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  NEW_USER
 } from './types';
 
 // const ROOT_URL = "http://localhost:3000";
@@ -35,7 +36,7 @@ export function checkTrinomial(values, pattern) {
     })
       .then(
         response => {
-          dispatch( {type: CHECK_TRINOMIAL} );
+          dispatch( {type: CHECK_TRINOMIAL}  );
           dispatch( fetchTrinomial(pattern) );
       }).catch(
         () => {}
@@ -61,7 +62,10 @@ export function signupUser( {username, password, password_confirmation} ) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
       .then(
-        response => { hashHistory.push("/signin"); }
+        response => {
+          dispatch( {type: NEW_USER} );
+          hashHistory.push("/signin");
+        }
       ).catch(
         error => {
           const errors = error.response.data;
@@ -78,7 +82,7 @@ export function signinUser({username, password}) {
       .then( response => {
         // if good
         // update state to indicate user is authenticated
-        dispatch({ type: AUTH_USER });
+        dispatch({ type: AUTH_USER, payload: username });
         // save JWT token in the local storage - managed by user's browser
         localStorage.setItem('token', response.data.auth_token);
         // redirect to route '/report'
@@ -92,7 +96,7 @@ export function signinUser({username, password}) {
 export function signoutUser() {
   return function(dispatch) {
     localStorage.removeItem('token');
-    dispatch({ type: UNAUTH_USER });
+    dispatch( { type: UNAUTH_USER } );
   }
 }
 

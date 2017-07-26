@@ -8,9 +8,12 @@ class Header extends Component {
     if (this.props.authenticated === true) {
       // show link to signout
       return (
-        <Link className="btn btn-primary" to="/signout">
-          Sign Out
-        </Link>
+        <div>
+          <h5>Welcome { this.props.username }</h5>
+          <Link className="btn btn-primary" to="/signout">
+            Sign Out
+          </Link>
+        </div>
       );
     } else {
       return (
@@ -57,7 +60,8 @@ class Header extends Component {
 
 const mapStateToProps = function(state) {
   return {
-    authenticated: state.user.authenticated
+    authenticated: state.user.authenticated,
+    username: state.user.username
   };
 }
 
