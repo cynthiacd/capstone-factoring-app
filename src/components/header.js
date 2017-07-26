@@ -59,9 +59,6 @@ class Header extends Component {
             <Link className="btn btn-primary" to="/learn_patterns">
               Learn the Patterns
             </Link>
-            <Link className="btn btn-primary" to="/learn_video">
-              Learn how to Factor
-            </Link>
           </div>
             { this.renderSignLinks() }
         </div>
