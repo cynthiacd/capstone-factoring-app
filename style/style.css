@@ -25,17 +25,9 @@ div {
   text-align: center;
 }
 
-/*input.form-control {
-  text-align: center !important;
-}*/
-
 input[type="radio"] {
   text-align: center !important;
 }
-
-/*div {
-  margin: 0.5%;
-}*/
 
 h1 {
   text-align: center;
@@ -44,6 +36,11 @@ h1 {
 
 div.container {
   max-width: 85% !important;
+}
+
+svg {
+  text-align: center;
+  border: solid;
 }
 
 svg text {
@@ -69,6 +66,10 @@ h2, h3, h4, h5 {
 
 .learn-buttons {
   text-align: left;
+}
+
+.progress-chart {
+  border: solid;
 }
 
 /*.nav-buttons {

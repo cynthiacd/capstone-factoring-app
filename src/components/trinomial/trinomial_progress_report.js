@@ -23,9 +23,9 @@ class Report extends Component {
       );
     }
     return (
-      <div className="row report">
+      <div className="report">
         <h1>Total Problems Completed: { report["total_problems"] }</h1>
-        <div className="progress-chart">
+        <div className="row progress-chart">
           <Link to="/practice/plus_plus" className="col-lg-3">
             <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
           </Link>

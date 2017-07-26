@@ -63,15 +63,13 @@ export function signupUser( {username, password, password_confirmation} ) {
     axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
       .then(
         response => {
+          console.log("in good signup action");
           dispatch( {type: NEW_USER} );
           hashHistory.push("/signin");
         }
       ).catch(
-        error => {
-          const errors = error.response.data;
-          dispatch( authError(errors) );
-        }
-      );
+        () => { dispatch( authError("Username has been taken") ) }
+      )
   }
 }
 

@@ -8,7 +8,6 @@ import * as actions from '../../actions';
 class Signup extends Component {
 
   onSubmit( {username, password, password_confirmation} ) {
-
     this.props.signupUser( {username, password, password_confirmation} );
   }
 
@@ -25,6 +24,9 @@ class Signup extends Component {
           type={ field.type }
           { ...field.input }
         />
+        <div className="text-help">
+          { touched ? error : "" }
+        </div>
       </div>
     );
   }
@@ -34,30 +36,19 @@ class Signup extends Component {
   // conditionals/formatting on frontend
   renderAlert() {
     if( this.props.errorMessages) {
-      if ( this.props.errorMessages["username"] && this.props.errorMessages["password_confirmation"] ) {
-        return (
-          <div className="alert alert-danger">
-            <p><strong>Username { this.props.errorMessages["username"] }</strong></p>
-            <p><strong>Passwords do not match</strong></p>
-          </div>
-      );} else if ( this.props.errorMessages["username"] ) {
-        return (
-          <div className="alert alert-danger">
-            <p><strong>Username: { this.props.errorMessages["username"] }</strong></p>
-          </div>
-      );} else if ( this.props.errorMessages["password_confirmation"] ) {
-        return (
-          <div className="alert alert-danger">
-            <p><strong>Passwords do not match</strong></p>
-          </div>
-      );}
+      return (
+        <div className="alert alert-danger">
+          <p><strong>{ this.props.errorMessages }</strong></p>
+        </div>
+      );
     }
   }
 
   render() {
+    console.log("in render of signin");
     const { handleSubmit } = this.props;
     return (
-      <form method="post" onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
+      <form method="post" onSubmit= { handleSubmit( this.onSubmit.bind(this) ) }>
         <Field
           label="Username"
           name="username"
@@ -90,10 +81,15 @@ const mapStateToProps = function(state) {
   return { errorMessages: state.user.errors };
 }
 
-// function validate(values) {
-//   const errors = {};
-//   return errors;
-// }
+const validate = function(values) {
+  const errors = {};
+
+  if (values.password !== values.password_confirmation ) {
+    errors.password_confirmation = "Passwords do not match";
+  }
+  console.log(errors);
+  return errors;
+}
 
 const afterSubmit = function (result, dispatch) {
   // console.log("in afterSubmit");
@@ -101,6 +97,5 @@ const afterSubmit = function (result, dispatch) {
 }
 
 export default reduxForm({
-  form: 'signupForm',
-  onSubmitSuccess: afterSubmit
+  form: 'signupForm'
 })(connect (mapStateToProps, actions)(Signup) );
