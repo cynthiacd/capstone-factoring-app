@@ -45,7 +45,6 @@ class Signup extends Component {
   }
 
   render() {
-    console.log("in render of signin");
     const { handleSubmit } = this.props;
     return (
       <form method="post" onSubmit= { handleSubmit( this.onSubmit.bind(this) ) }>
@@ -87,7 +86,7 @@ const validate = function(values) {
   if (values.password !== values.password_confirmation ) {
     errors.password_confirmation = "Passwords do not match";
   }
-  console.log(errors);
+  // console.log(errors);
   return errors;
 }
 

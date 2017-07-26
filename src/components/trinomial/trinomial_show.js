@@ -36,6 +36,11 @@ class TrinomialShow extends Component {
     delete values.step2;
     const score = ( values.final === this.props.data.trinomial.solution1 || values.final === this.props.data.trinomial.solution2 ? 1 : -1 );
     values["score"] = score;
+
+    // this works to alert user that they are correct ...
+    // if (score === 1) {
+    //   alert("correct");
+    // }
     // will need to access state and grab user's token here - once you set up user auth
     values["username"] = "user1";
     // critical that you send back the pattern!
@@ -60,6 +65,10 @@ class TrinomialShow extends Component {
 
     return (
       <div>
+        <div className="problems-correct-tracker">
+          <h4>Problems Correct: { this.props.problemsCorrect }</h4>
+        </div>
+
         <div className="problem">
           <h2 className="trinomial-general-form">{ trinomial.a }x<sup>2</sup> { trinomial.general_form }</h2>
         </div>
@@ -112,7 +121,7 @@ const validate = function(values) {
 }
 
 const mapStateToProps = function(state) {
-  return { data: state.trinomial };
+  return { data: state.trinomial, problemsCorrect: state.user.report.total_problems_correct };
 }
 
 const afterSubmit = function (result, dispatch) {

@@ -30,12 +30,15 @@ export function fetchTrinomial(pattern) {
 
 export function checkTrinomial(values, pattern) {
   return function(dispatch) {
+
+
     axios.post(`${ROOT_URL}/trinomial/check`, values, {
       headers: { authorization: localStorage.getItem('token') }
     })
       .then(
         response => {
           dispatch( {type: CHECK_TRINOMIAL}  );
+          dispatch( fetchReport() );
           dispatch( fetchTrinomial(pattern) );
       }).catch(
         () => {}
