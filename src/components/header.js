@@ -8,8 +8,13 @@ class Header extends Component {
     if (this.props.authenticated === true) {
       // show link to signout
       return (
-        <div col-lg-4 signin-signout-link>
-          <h5>Welcome { this.props.username }</h5>
+        <div className="col-lg-7 signin-out-links">
+          <Link className="btn btn-primary" to="/report">
+            Report
+          </Link>
+          <Link className="btn btn-primary" to="/practice/custom">
+            Practice
+          </Link>
           <Link className="btn btn-primary" to="/signout">
             Sign Out
           </Link>
@@ -17,7 +22,7 @@ class Header extends Component {
       );
     } else {
       return (
-        <div col-lg-4 signin-signout-link>
+        <div className="col-lg-7 signin-out-links">
           <Link className="btn btn-primary" to="/signin">
             Sign In
           </Link>
@@ -31,27 +36,27 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header">
-        <Link to="/"><h1>Trinomial Factoring Practice</h1></Link>
-          <div className="row navigation-bar">
-            <div className="col-lg-8">
-              <Link className="btn btn-primary" to="/learn_patterns">
-                Learn the Patterns
-              </Link>
-              <Link className="btn btn-primary" to="/learn_video">
-                Learn how to Factor
-              </Link>
-              <Link className="btn btn-primary" to="/report">
-                Report
-              </Link>
-              <Link className="btn btn-primary" to="/practice/custom">
-                Practice
-              </Link>
-            </div>
-
-            { this.renderSignLinks() }
-
+      <div className="row header">
+        <div className="row text-headers">
+          <div className="col-lg-6">
+            <Link to="/"><h1>Trinomial Factoring Practice</h1></Link>
           </div>
+          <div className="col-lg-6 welcome-message">
+            <h5>Welcome { this.props.username }</h5>
+          </div>
+        </div>
+
+        <div className="row nav-buttons">
+          <div className="col-lg-5 learn-buttons">
+            <Link className="btn btn-primary" to="/learn_patterns">
+              Learn the Patterns
+            </Link>
+            <Link className="btn btn-primary" to="/learn_video">
+              Learn how to Factor
+            </Link>
+          </div>
+            { this.renderSignLinks() }
+        </div>
       </div>
     );
   }
