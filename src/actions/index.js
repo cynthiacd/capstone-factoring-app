@@ -9,8 +9,7 @@ import {
   FETCH_REPORT,
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR,
-  NEW_USER
+  AUTH_ERROR
 } from './types';
 
 // const ROOT_URL = "http://localhost:3000";
@@ -63,9 +62,8 @@ export function signupUser( {username, password, password_confirmation} ) {
     axios.post(`${ROOT_URL}/user/signup`, { username, password, password_confirmation })
       .then(
         response => {
-          console.log("in good signup action");
-          dispatch( {type: NEW_USER} );
-          hashHistory.push("/signin");
+          console.log("sign up was successful - now trying to signin user");
+          dispatch( signinUser({username, password}) );
         }
       ).catch(
         () => { dispatch( authError("Username has been taken") ) }

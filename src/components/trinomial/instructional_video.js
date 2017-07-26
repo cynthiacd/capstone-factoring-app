@@ -9,7 +9,7 @@ const Video = () => {
         <div className="embed-responsive embed-responsive-16by9">
           <iframe
             className="embed-responsive-item"
-            src="https://www.youtube.com/embed/eF6zYNzlZKQ">
+            src={"http://www.youtube.com/embed/eF6zYNzlZKQ"}>
           </iframe>
         </div>
       </div>

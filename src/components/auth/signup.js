@@ -91,11 +91,12 @@ const validate = function(values) {
   return errors;
 }
 
-const afterSubmit = function (result, dispatch) {
-  // console.log("in afterSubmit");
-  dispatch( reset('signupForm') );
-}
+// const afterSubmit = function (result, dispatch) {
+//   // console.log("in afterSubmit");
+//   dispatch( reset('signupForm') );
+// }
 
 export default reduxForm({
+  validate,
   form: 'signupForm'
 })(connect (mapStateToProps, actions)(Signup) );

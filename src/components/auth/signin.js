@@ -38,19 +38,10 @@ class Singin extends Component {
     }
   }
 
-  renderWelcome() {
-    if ( this.props.welcomeMessage) {
-      return (
-        <div><h4>Your signup was successful. Welcome new user. Please sign in. </h4></div>
-      );
-    }
-  }
-
   render() {
     const { handleSubmit } = this.props;
     return (
       <div>
-        { this.renderWelcome() }
         <form method="post" onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
           <Field
             label="Username"
@@ -76,7 +67,7 @@ class Singin extends Component {
 }
 
 const mapStateToProps = function(state) {
-  return { errorMessage: state.user.errors, welcomeMessage: state.user.newUser };
+  return { errorMessage: state.user.errors };
 }
 
 // function validate(values) {
