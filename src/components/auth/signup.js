@@ -57,7 +57,7 @@ class Signup extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
+      <form method="post" onSubmit= { handleSubmit(this.onSubmit.bind(this)) }>
         <Field
           label="Username"
           name="username"

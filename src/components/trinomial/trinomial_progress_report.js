@@ -65,7 +65,7 @@ class Report extends Component {
 
 const mapStateToProps = function(state) {
   // console.log("in mapStateToProps for report");
-  console.log(state);
+  // console.log(state);
   return { report: state.user.report };
 };
 
