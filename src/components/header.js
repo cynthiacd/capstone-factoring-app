@@ -49,7 +49,8 @@ class Header extends Component {
       <div className="row header">
         <div className="row text-headers">
           <div className="col-lg-8">
-            <h2>Quadratic Factoring Practice <small>ax<sup>2</sup> + bx +c = (x+e)(x+f)</small></h2>
+            <h4>ax<sup>2</sup> + bx +c = (x+e)(x+f)</h4>
+            <h2>Quadratic Factoring Practice</h2>
           </div>
 
           { this.renderWelcomeMessage() }
