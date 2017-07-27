@@ -30,7 +30,7 @@ class Report extends Component {
         </div>
         <div className="row progress-chart">
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
               <h5>Plus Plus</h5>
               <h6>x<sup>2</sup> + bx + c</h6>
             <Link to="/practice/plus_plus">
@@ -38,7 +38,7 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
               <h5>Minus Plus</h5>
               <h6>x<sup>2</sup> - bx + c</h6>
             <Link to="/practice/minus_plus">
@@ -46,7 +46,7 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
               <h5>Minus Minus</h5>
               <h6>x<sup>2</sup> - bx - c</h6>
             <Link to="/practice/minus_minus">
@@ -54,7 +54,7 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
               <h5>Plus Minus</h5>
               <h6>x<sup>2</sup> + bx + c</h6>
             <Link to="/practice/plus_minus">
@@ -62,7 +62,7 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
             <h5>Plus Double Square</h5>
             <h6>x<sup>2</sup> + 2ax + a<sup>2</sup></h6>
             <Link to="/practice/plus_dbl_sq">
@@ -70,7 +70,7 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
             <h5>Minus Double Square</h5>
             <h6>x<sup>2</sup> - 2ax + a<sup>2</sup></h6>
             <Link to="/practice/minus_dbl_sq">
@@ -78,7 +78,7 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
+          <div className="col-lg-3 report-gauge">
             <h5>Difference of Squares</h5>
             <h6>x<sup>2</sup> - a<sup>2</sup></h6>
             <Link to="/practice/diff_sq">

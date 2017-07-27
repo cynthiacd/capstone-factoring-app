@@ -36,9 +36,9 @@ class TrinomialShow extends Component {
     values["pattern"] = this.props.data.trinomial.pattern;
 
     // this works to alert user that they are correct ...
-    // if (score === 1) {
-    //   alert("correct");
-    // }
+    if (score === -1) {
+      alert(`Your solution is incorrect. \nThe correct expression is ${this.props.data.trinomial.solution1}`);
+    }
 
     this.props.checkTrinomial(values, this.props.params.pattern);
   }

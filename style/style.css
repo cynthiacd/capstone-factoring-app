@@ -57,8 +57,17 @@ h2, h3, h4, h5 {
   margin: 0;
 }
 
-h6 {
+.report-gauge h5, h6 {
   margin: 0;
+}
+
+.report-gauge h5 {
+  font-weight: bold;
+}
+
+.report-gauge {
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .learn-buttons {
