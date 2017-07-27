@@ -17,7 +17,8 @@ const ROOT_URL = "https://factoring-api.herokuapp.com";
 
 export function fetchTrinomial(pattern) {
   return function(dispatch) {
-    // console.log("fetching a new trinomial");
+    // now checking total problems in trinomial show page - have to make sure to get updated report
+    dispatch( fetchReport() );
     axios.get(`${ROOT_URL}/trinomial/${pattern}`, {
       headers: { authorization: localStorage.getItem('token') }
     })
@@ -39,7 +40,6 @@ export function checkTrinomial(values, pattern) {
       .then(
         response => {
           dispatch( {type: CHECK_TRINOMIAL}  );
-          dispatch( fetchReport() );
           dispatch( fetchTrinomial(pattern) );
       }).catch(
         () => {}

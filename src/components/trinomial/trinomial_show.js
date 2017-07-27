@@ -37,7 +37,7 @@ class TrinomialShow extends Component {
 
     // this works to alert user that they are correct ...
     if (score === -1) {
-      alert(`Your solution is incorrect. \nThe correct expression is ${this.props.data.trinomial.solution1}`);
+      alert(`Your solution is incorrect :( \nThe correct expression is ${this.props.data.trinomial.solution1}`);
     }
 
     this.props.checkTrinomial(values, this.props.params.pattern);
@@ -48,7 +48,6 @@ class TrinomialShow extends Component {
     const superScript2 = "2".sup
     const { handleSubmit } = this.props;
 
-    // now this is not working - since changing my middleware
     if ( !trinomial ) {
       return (
         <div>
@@ -60,7 +59,7 @@ class TrinomialShow extends Component {
     return (
       <div>
         <div className="problems-correct-tracker">
-          <h4>Problems Correct: { this.props.problemsCorrect }</h4>
+          <h4>Problems Correct: { this.props.userReport.total_problems_correct }</h4>
         </div>
 
         <div className="problem">
@@ -94,7 +93,9 @@ const validate = function(values) {
 }
 
 const mapStateToProps = function(state) {
-  return { data: state.trinomial, problemsCorrect: state.user.report.total_problems_correct };
+  console.log("in map state to props of problem page");
+  console.log(state);
+  return { data: state.trinomial, userReport: state.user.report};
 }
 
 const afterSubmit = function (result, dispatch) {
