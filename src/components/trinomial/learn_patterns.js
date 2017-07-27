@@ -4,25 +4,47 @@ const LearnPatterns = () => {
 
   return (
 
-    <div className="instruction-info-patterns">
-      <h2></h2>
-        <p>Polynomial factoring is a critical skill of algebra. This app will
-        teach you how to factor quadratics/trinomials by identifiying the pattern
-        first.
-        </p>
-        <p>The patterns are based off of the signs and coefficients of the quadratic expression
-        in general form (ax<sup>2</sup> + bx + c)
-        </p>
-        <ul>
-          <li>Step 1: Look for a GCF</li>
-          <li>Step 2: Identifiy the Pattern</li>
-          <li>Step 3: Idenitfy the coefficients a, b, and c </li>
-          <li>Step 4: is a = 1 or a > 1?</li>
-          <li>Step 5: If a = 1, look for factors of c that add up to b and
-          dont forget the pattern - the signs of the factors must coresspond with the pattern</li>
-        </ul>
-    </div>
+    <div className="row instruction-info-patterns">
+      <div className="col-lg-3 pattern-card">
+        <p>Plus Plus</p>
+        <p>x<sup>2</sup> + bx + c</p>
+      </div>
 
+      <div className="col-lg-3 pattern-card">
+        <p>Minus (-) Plus (+)</p>
+        <p>x<sup>2</sup> - bx + c</p>
+      </div>
+
+      <div className="col-lg-3 pattern-card">
+        <p>Minus Minus</p>
+        <p>x<sup>2</sup> - bx - c</p>
+      </div>
+
+      <div className="col-lg-3 pattern-card">
+        <p>Plus Minus</p>
+        <p>x<sup>2</sup> + bx - c</p>
+      </div>
+
+      <div className="col-lg-3 pattern-card">
+        <p>Double Plus Square</p>
+        <p>x<sup>2</sup> + 2ax + a<sup>2</sup></p>
+      </div>
+
+      <div className="col-lg-3 pattern-card">
+        <p>Double Minus Square</p>
+        <p>x<sup>2</sup> - 2ax - a<sup>2</sup></p>
+      </div>
+
+      <div className="col-lg-3 pattern-card">
+        <p>Difference of Perfect Squares</p>
+        <p>x<sup>2</sup> - a<sup>2</sup></p>
+      </div>
+
+      <div className="col-lg-3 pattern-card">
+        <p>a is greater than one ( a > 1 ) + any pattern</p>
+        <p>ax<sup>2</sup> + bx + c</p>
+      </div>
+    </div>
   );
 }
 
