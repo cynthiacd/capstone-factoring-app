@@ -90,5 +90,9 @@ div.col-lg-3 {
 
 .pattern-card {
   margin: 3%;
-  background-color: lightgrey;
+  background-color: lightblue;
 }
+
+/*.pattern-card:hover {
+  background-color: white;
+}*/
