@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Gauge from 'react-svg-gauge';
 import { Link } from 'react-router';
-// import { fetchReport } from '../../actions';
 import * as actions from '../../actions';
 
 
@@ -86,8 +85,8 @@ class Report extends Component {
             </Link>
           </div>
 
-          <div className="col-lg-3">
-            <h5>a greater than 1 ( a > 1 )</h5>
+          <div className="col-lg-3 report-gauge">
+            <h5>a is greater than 1 ( a > 1 )</h5>
             <h6>ax<sup>2</sup> + bx +c</h6>
             <Link to="/practice/a_greater_one">
               <Gauge value={ report["a_greater_one"] } width={200} height={130} label="" color="#0275d8"/>

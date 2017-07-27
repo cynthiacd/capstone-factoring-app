@@ -37,7 +37,7 @@ class Header extends Component {
   renderWelcomeMessage() {
     if (this.props.authenticated === true) {
       return (
-        <div className="col-lg-6 welcome-message">
+        <div className="col-lg-4 welcome-message">
           <h5>Welcome { this.props.username }</h5>
         </div>
       );
@@ -48,9 +48,10 @@ class Header extends Component {
     return (
       <div className="row header">
         <div className="row text-headers">
-          <div className="col-lg-6">
-            <Link to="/"><h1>Trinomial Factoring Practice</h1></Link>
+          <div className="col-lg-8">
+            <h2>Quadratic Factoring Practice <small>ax<sup>2</sup> + bx +c = (x+e)(x+f)</small></h2>
           </div>
+
           { this.renderWelcomeMessage() }
         </div>
 

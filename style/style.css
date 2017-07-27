@@ -1,60 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Roboto+Condensed:400,700');
+
+/* universal app styling */
+
 * {
-  font-family: 'Calibri';
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 div {
   padding: 0 !important;
 }
 
+div.container {
+  max-width: 85% !important;
+}
+
+h2, h3, h4, h5 {
+  padding: 3%;
+  margin: 0;
+}
+
+
+/* header styling */
+
 .btn {
   margin: 1%;
 }
 
 .header {
+  /*border: solid;*/
   border-bottom: solid;
+  color: midnightblue;
+  vertical-align: bottom;
   /*background-color: lightgrey;*/
   /*text-align: center;*/
 }
 
-.header h1 {
+.header h2 {
+  /*border: solid;*/
   text-align: left;
+  font-weight: bold;
+  font-size: 2.0em;
   /*margin: 1%;*/
 }
 
-.trinomial-general-form {
-  text-align: center;
+.welcome-message h5 {
+  text-align: right;
+  font-weight: bold;
+  padding: 8%;
 }
 
-
-h1 {
-  text-align: center;
-  margin: 3%;
-}
-
-div.container {
-  max-width: 85% !important;
-}
-
-
-svg text {
-  fill: black !important;
-}
-
-div.col-lg-3:hover {
-  background-color: lightblue;
+.learn-buttons {
+  text-align: left;
 }
 
 .signin-out-links {
   text-align: right;
 }
 
-.welcome-message {
-  text-align: right;
+/* body styling */
+
+/*homepage main header*/
+h1 {
+  text-align: center;
+  margin: 3%;
 }
 
-h2, h3, h4, h5 {
-  padding: 3%;
-  margin: 0;
+/* gauge styling */
+svg text {
+  fill: black !important;
+}
+
+div.col-lg-3:hover {
+  background-color: lightblue;
 }
 
 .report-gauge h5, h6 {
@@ -70,9 +87,11 @@ h2, h3, h4, h5 {
   margin-bottom: 1%;
 }
 
-.learn-buttons {
-  text-align: left;
+a.col-lg-3 {
+  text-align: center;
 }
+
+/* trinomial show page */
 
 .problem-traker {
   text-align: center;
@@ -83,15 +102,14 @@ h2, h3, h4, h5 {
   color: midnightblue;
 }
 
-a.col-lg-3 {
-  text-align: center;
-}
 
+/* ////////// signin/out form styling ///////// */
 .form-group,
 .goodbye-message {
   margin-top: 2%;
 }
 
+/* learn patterns styling */
 div.col-lg-3 {
   padding: 5%;
   /*border: solid;*/
