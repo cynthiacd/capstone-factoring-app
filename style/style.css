@@ -40,7 +40,7 @@ svg text {
   fill: black !important;
 }
 
-svg:hover {
+div.col-lg-3:hover {
   background-color: lightblue;
 }
 
@@ -54,6 +54,10 @@ svg:hover {
 
 h2, h3, h4, h5 {
   padding: 3%;
+  margin: 0;
+}
+
+h6 {
   margin: 0;
 }
 

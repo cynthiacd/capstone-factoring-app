@@ -29,37 +29,70 @@ class Report extends Component {
           <h3 className="col-lg-6">Total Problems Correct: { report["total_problems_correct"]}</h3>
         </div>
         <div className="row progress-chart">
-          <Link to="/practice/plus_plus" className="col-lg-3">
-            <Gauge value={ report["plus_plus"] } width={200} height={160} label="Plus Plus" color="#0275d8"/>
-          </Link>
 
-          <Link to="/practice/minus_plus" className="col-lg-3">
-            <Gauge value={ report["minus_plus"] } width={200} height={160} label="Minus Plus" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+              <h5>Plus Plus</h5>
+              <h6>x<sup>2</sup> + bx + c</h6>
+            <Link to="/practice/plus_plus">
+              <Gauge value={ report["plus_plus"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
 
-          <Link to="/practice/minus_minus" className="col-lg-3">
-            <Gauge value={ report["minus_minus"] } width={200} height={160} label="Minus Minus" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+              <h5>Minus Plus</h5>
+              <h6>x<sup>2</sup> - bx + c</h6>
+            <Link to="/practice/minus_plus">
+              <Gauge value={ report["minus_plus"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
 
-          <Link to="/practice/plus_minus" className="col-lg-3">
-            <Gauge value={ report["plus_minus"] } width={200} height={160} label="Plus Minus" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+              <h5>Minus Minus</h5>
+              <h6>x<sup>2</sup> - bx - c</h6>
+            <Link to="/practice/minus_minus">
+              <Gauge value={ report["minus_minus"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
 
-          <Link to="/practice/plus_dbl_sq" className="col-lg-3">
-            <Gauge value={ report["plus_dbl_sq"] } width={200} height={160} label="Plus Double Square" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+              <h5>Plus Minus</h5>
+              <h6>x<sup>2</sup> + bx + c</h6>
+            <Link to="/practice/plus_minus">
+              <Gauge value={ report["plus_minus"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
 
-          <Link to="/practice/minus_dbl_sq" className="col-lg-3">
-            <Gauge value={ report["minus_dbl_sq"] } width={200} height={160} label="Minus Double Square" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+            <h5>Plus Double Square</h5>
+            <h6>x<sup>2</sup> + 2ax + a<sup>2</sup></h6>
+            <Link to="/practice/plus_dbl_sq">
+              <Gauge value={ report["plus_dbl_sq"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
 
-          <Link to="/practice/diff_sq" className="col-lg-3">
-            <Gauge value={ report["diff_sq"] } width={200} height={160} label="Difference of Squares" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+            <h5>Minus Double Square</h5>
+            <h6>x<sup>2</sup> - 2ax + a<sup>2</sup></h6>
+            <Link to="/practice/minus_dbl_sq">
+              <Gauge value={ report["minus_dbl_sq"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
 
-          <Link to="/practice/a_greater_one" className="col-lg-3">
-            <Gauge value={ report["a_greater_one"] } width={200} height={160} label="a > 1" color="#0275d8"/>
-          </Link>
+          <div className="col-lg-3">
+            <h5>Difference of Squares</h5>
+            <h6>x<sup>2</sup> - a<sup>2</sup></h6>
+            <Link to="/practice/diff_sq">
+              <Gauge value={ report["diff_sq"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
+
+          <div className="col-lg-3">
+            <h5>a greater than 1 ( a > 1 )</h5>
+            <h6>ax<sup>2</sup> + bx +c</h6>
+            <Link to="/practice/a_greater_one">
+              <Gauge value={ report["a_greater_one"] } width={200} height={130} label="" color="#0275d8"/>
+            </Link>
+          </div>
         </div>
       </div>
     );
