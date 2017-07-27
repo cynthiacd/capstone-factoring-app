@@ -24,3 +24,6 @@ const Home = () => {
 }
 
 export default Home;
+// could import a picture of factoring process ...
+// could have your flow chart and example
+// and box

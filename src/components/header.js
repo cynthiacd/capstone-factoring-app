@@ -56,6 +56,9 @@ class Header extends Component {
 
         <div className="row nav-buttons">
           <div className="col-lg-5 learn-buttons">
+            <Link className="btn btn-primary" to="/">
+              Home
+            </Link>
             <Link className="btn btn-primary" to="/learn_patterns">
               Learn the Patterns
             </Link>
