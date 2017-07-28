@@ -98,6 +98,10 @@ div.col-lg-3:hover {
   font-weight: bold;
 }
 
+.report-gauge h6 {
+  font-size: 1.2em;
+}
+
 .report-gauge {
   margin-top: 1%;
   margin-bottom: 1%;
@@ -123,7 +127,7 @@ h2.trinomial-general-form {
 }
 
 
-/* ////////// signin/out form styling ///////// */
+/*  signin/out form styling */
 .form-group,
 .goodbye-message {
   margin-top: 2%;
@@ -141,9 +145,8 @@ div.col-lg-3 {
 
 .pattern-card {
   margin: 3%;
-  background-color: lightblue;
 }
 
-/*.pattern-card:hover {
+.pattern-card:hover {
   background-color: white;
-}*/
+}

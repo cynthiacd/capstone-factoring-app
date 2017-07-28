@@ -55,7 +55,7 @@ class Report extends Component {
 
           <div className="col-lg-3 report-gauge">
               <h5>Plus Minus</h5>
-              <h6>x<sup>2</sup> + bx + c</h6>
+              <h6>x<sup>2</sup> + bx - c</h6>
             <Link to="/practice/plus_minus">
               <Gauge value={ report["plus_minus"] } width={200} height={130} label="" color="#0275d8"/>
             </Link>
