@@ -67,7 +67,7 @@ export function signupUser( {username, password, password_confirmation} ) {
       .then(
         response => {
           console.log("sign up was successful - now signing in user");
-          dispatch( signinUser({username, password}) );
+          dispatch( signinUser( {username, password}) );
         }
       ).catch(
         () => { dispatch( authError("Username has been taken") ) }

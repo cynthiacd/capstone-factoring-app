@@ -37,26 +37,25 @@ h2, h3, h4, h5 {
 }
 
 .header h2 {
-  /*border: solid;*/
-  text-align: left;
   font-weight: bold;
   padding: 0;
-  /*font-size: 2.0em;*/
-
-  /*margin: 1%;*/
+  padding-top: 3%;
+  padding-bottom: 0.5%;
+  text-align: left;
 }
 
-.header h4 {
+.header h5 {
   padding: 0;
-  padding-top: 3%;
-  padding-bottom: 1%;
+  /*padding-top: 3%;*/
+  padding-bottom: 2%;
+  padding-left: 1%;
   font-weight: normal;
 }
 
 .welcome-message h5 {
   text-align: right;
   font-weight: bold;
-  padding: 8%;
+  padding: 10%;
 }
 
 .learn-buttons {
@@ -110,6 +109,10 @@ a.col-lg-3 {
 .problem-traker h3 {
   font-weight: bold;
   color: midnightblue;
+}
+
+h2.trinomial-general-form {
+  text-align: center;
 }
 
 
