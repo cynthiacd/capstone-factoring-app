@@ -1,11 +1,10 @@
 
 // using Thunk as middleware - all actions will return a function
-// Thunk gets appllied in the main index.js file
 import axios from "axios";
 import { hashHistory } from 'react-router';
 import {
   FETCH_TRINOMIAL,
-  CHECK_TRINOMIAL,
+  REMOVE_TRINOMIAL,
   FETCH_REPORT,
   AUTH_USER,
   UNAUTH_USER,
@@ -32,14 +31,12 @@ export function fetchTrinomial(pattern) {
 
 export function checkTrinomial(values, pattern) {
   return function(dispatch) {
-
-
     axios.post(`${ROOT_URL}/trinomial/check`, values, {
       headers: { authorization: localStorage.getItem('token') }
     })
       .then(
         response => {
-          dispatch( {type: CHECK_TRINOMIAL}  );
+          dispatch( {type: REMOVE_TRINOMIAL}  );
           dispatch( fetchTrinomial(pattern) );
       }).catch(
         () => {}

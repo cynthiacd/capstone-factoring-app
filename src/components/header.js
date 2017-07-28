@@ -6,7 +6,7 @@ class Header extends Component {
 
   renderSignLinks() {
     if (this.props.authenticated === true) {
-      // show link to signout
+      // show links to report, practice, and signout
       return (
         <div className="col-lg-7 signin-out-links">
           <Link className="btn btn-primary" to="/report">
@@ -21,6 +21,7 @@ class Header extends Component {
         </div>
       );
     } else {
+      // show links to signin or sign-up
       return (
         <div className="col-lg-7 signin-out-links">
           <Link className="btn btn-primary" to="/signin">
@@ -52,7 +53,6 @@ class Header extends Component {
             <h2>Quadratic Factoring Practice</h2>
             <h5>ax<sup>2</sup> + bx +c = (x+e)(x+f)</h5>
           </div>
-
           { this.renderWelcomeMessage() }
         </div>
 
